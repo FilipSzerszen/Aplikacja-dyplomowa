@@ -63,7 +63,7 @@ namespace Aplikacja_dyplomowa
             this.btnAnuluj.TabIndex = 2;
             this.btnAnuluj.Text = "&Anuluj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
-            this.btnAnuluj.Click += new System.EventHandler(this.btnAnuluj_Click);
+            this.btnAnuluj.Click += new System.EventHandler(this.BtnAnuluj_Click);
             // 
             // Form2
             // 

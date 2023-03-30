@@ -18,7 +18,7 @@ namespace Aplikacja_dyplomowa
             Aplikacja_dyplomowa.Form1.Enabled = false;
         }
 
-        private void btnAnuluj_Click(object sender, EventArgs e)
+        private void BtnAnuluj_Click(object sender, EventArgs e)
         {
             if (Aplikacja_dyplomowa.port_com != "")
             {
@@ -35,12 +35,6 @@ namespace Aplikacja_dyplomowa
                 Aplikacja_dyplomowa.Form1.Focus();
                 this.Close();
             }
-            
-        }
-
-        private void Form4_Load(object sender, EventArgs e)
-        {
-           
         }
 
         private void Form4_FormClosed(object sender, FormClosedEventArgs e)

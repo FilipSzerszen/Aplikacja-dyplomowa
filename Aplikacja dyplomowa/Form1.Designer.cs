@@ -141,7 +141,7 @@ namespace Aplikacja_dyplomowa
             this.zToolStripMenuItem.Name = "zToolStripMenuItem";
             this.zToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.zToolStripMenuItem.Text = "&Otwórz plik";
-            this.zToolStripMenuItem.Click += new System.EventHandler(this.zToolStripMenuItem_Click);
+            this.zToolStripMenuItem.Click += new System.EventHandler(this.ZToolStripMenuItem_Click);
             // 
             // zapiszPlikToolStripMenuItem
             // 
@@ -149,14 +149,14 @@ namespace Aplikacja_dyplomowa
             this.zapiszPlikToolStripMenuItem.Name = "zapiszPlikToolStripMenuItem";
             this.zapiszPlikToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.zapiszPlikToolStripMenuItem.Text = "&Zapisz plik";
-            this.zapiszPlikToolStripMenuItem.Click += new System.EventHandler(this.zapiszPlikToolStripMenuItem_Click);
+            this.zapiszPlikToolStripMenuItem.Click += new System.EventHandler(this.ZapiszPlikToolStripMenuItem_Click);
             // 
             // importujDaneToolStripMenuItem
             // 
             this.importujDaneToolStripMenuItem.Name = "importujDaneToolStripMenuItem";
             this.importujDaneToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.importujDaneToolStripMenuItem.Text = "&Importuj dane";
-            this.importujDaneToolStripMenuItem.Click += new System.EventHandler(this.importujDaneToolStripMenuItem_Click);
+            this.importujDaneToolStripMenuItem.Click += new System.EventHandler(this.ImportujDaneToolStripMenuItem_Click);
             // 
             // oprogramieToolStripMenuItem
             // 
@@ -344,8 +344,8 @@ namespace Aplikacja_dyplomowa
             title2.Text = "Prędkość [km/h]";
             this.chV.Titles.Add(title2);
             this.chV.Visible = false;
-            this.chV.MouseLeave += new System.EventHandler(this.chV_MouseLeave);
-            this.chV.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chV_MouseMove);
+            this.chV.MouseLeave += new System.EventHandler(this.ChV_MouseLeave);
+            this.chV.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChV_MouseMove);
             // 
             // chHP
             // 
@@ -384,8 +384,8 @@ namespace Aplikacja_dyplomowa
             title3.Text = "Hamulec tylny";
             this.chHP.Titles.Add(title3);
             this.chHP.Visible = false;
-            this.chHP.MouseLeave += new System.EventHandler(this.chHP_MouseLeave);
-            this.chHP.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chHP_MouseMove);
+            this.chHP.MouseLeave += new System.EventHandler(this.ChHP_MouseLeave);
+            this.chHP.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChHP_MouseMove);
             // 
             // chHL
             // 
@@ -423,8 +423,8 @@ namespace Aplikacja_dyplomowa
             title4.Text = "Hamulec przedni";
             this.chHL.Titles.Add(title4);
             this.chHL.Visible = false;
-            this.chHL.MouseLeave += new System.EventHandler(this.chHL_MouseLeave);
-            this.chHL.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chHL_MouseMove);
+            this.chHL.MouseLeave += new System.EventHandler(this.ChHL_MouseLeave);
+            this.chHL.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChHL_MouseMove);
             // 
             // chG
             // 
@@ -463,8 +463,8 @@ namespace Aplikacja_dyplomowa
             title5.Text = "Przyśpieszenie względne [G]";
             this.chG.Titles.Add(title5);
             this.chG.Visible = false;
-            this.chG.MouseLeave += new System.EventHandler(this.chG_MouseLeave);
-            this.chG.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chG_MouseMove);
+            this.chG.MouseLeave += new System.EventHandler(this.ChG_MouseLeave);
+            this.chG.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChG_MouseMove);
             // 
             // chK
             // 
@@ -494,8 +494,8 @@ namespace Aplikacja_dyplomowa
             title6.Text = "Kadencja [obr/min]";
             this.chK.Titles.Add(title6);
             this.chK.Visible = false;
-            this.chK.MouseLeave += new System.EventHandler(this.chK_MouseLeave);
-            this.chK.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chK_MouseMove);
+            this.chK.MouseLeave += new System.EventHandler(this.ChK_MouseLeave);
+            this.chK.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChK_MouseMove);
             // 
             // PanelBoczny
             // 

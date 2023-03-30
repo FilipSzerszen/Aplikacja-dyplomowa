@@ -99,7 +99,6 @@ namespace Aplikacja_dyplomowa
 
                 for (int i = 0; i <= adres; i++)
                 {
-
                     progBar.Value = 100 * i / adres;
                     while (true)
                     {
@@ -124,18 +123,16 @@ namespace Aplikacja_dyplomowa
                         }
                     }
                 }
-
             }
             Zamknij_port();
-            
         }
+
         public Form2()
         {
             InitializeComponent();
-
         }
 
-        private void btnAnuluj_Click(object sender, EventArgs e)
+        private void BtnAnuluj_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -148,9 +145,6 @@ namespace Aplikacja_dyplomowa
             this.Close();
             Aplikacja_dyplomowa.Form1.Enabled = true;
             Aplikacja_dyplomowa.Form1.Focus();
-            
         }
-
-
     }
 }

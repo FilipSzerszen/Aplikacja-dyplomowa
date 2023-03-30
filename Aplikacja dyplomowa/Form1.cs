@@ -56,33 +56,29 @@ namespace Aplikacja_dyplomowa
         ushort lHamP = 0;
 
 
-        
-
 
         public void Wypełnij_wykresy()
         {
-            
-
             Czysc_t_przelozenia();
-            wypelnij_t_przelozenia();
-            wypelnij_t_kadencji();
-            wypelnij_t_przyspieszenia();
+            Wypelnij_t_przelozenia();
+            Wypelnij_t_kadencji();
+            Wypelnij_t_przyspieszenia();
 
             chPP.Series["chPP"].Points.Clear();
-            chPP.Series["chPP"].Points.AddXY("1", (Tablica_przelorzenia[0, 0] + Tablica_przelorzenia[0, 1] + Tablica_przelorzenia[0, 2] + Tablica_przelorzenia[0, 3] + Tablica_przelorzenia[0, 4] + Tablica_przelorzenia[0, 5] + Tablica_przelorzenia[0, 6] + Tablica_przelorzenia[0, 7] + Tablica_przelorzenia[0, 8]));
-            chPP.Series["chPP"].Points.AddXY("2", (Tablica_przelorzenia[1, 0] + Tablica_przelorzenia[1, 1] + Tablica_przelorzenia[1, 2] + Tablica_przelorzenia[1, 3] + Tablica_przelorzenia[1, 4] + Tablica_przelorzenia[1, 5] + Tablica_przelorzenia[1, 6] + Tablica_przelorzenia[1, 7] + Tablica_przelorzenia[1, 8]));
-            chPP.Series["chPP"].Points.AddXY("3", (Tablica_przelorzenia[2, 0] + Tablica_przelorzenia[2, 1] + Tablica_przelorzenia[2, 2] + Tablica_przelorzenia[2, 3] + Tablica_przelorzenia[2, 4] + Tablica_przelorzenia[2, 5] + Tablica_przelorzenia[2, 6] + Tablica_przelorzenia[2, 7] + Tablica_przelorzenia[2, 8]));
-
+            for (int i = 0; i < 3; i++)
+            {
+                chPP.Series["chPP"].Points.AddXY((i+1).ToString(),
+                    (Tablica_przelorzenia[i, 0] + Tablica_przelorzenia[i, 1] + Tablica_przelorzenia[i, 2] +
+                    Tablica_przelorzenia[i, 3] + Tablica_przelorzenia[i, 4] + Tablica_przelorzenia[i, 5] +
+                    Tablica_przelorzenia[i, 6] + Tablica_przelorzenia[i, 7] + Tablica_przelorzenia[i, 8]));
+            }
+            
             chPT.Series["chPT"].Points.Clear();
-            chPT.Series["chPT"].Points.AddXY("1", Tablica_przelorzenia[0, 0] + Tablica_przelorzenia[1, 0] + Tablica_przelorzenia[2, 0]);
-            chPT.Series["chPT"].Points.AddXY("2", Tablica_przelorzenia[0, 1] + Tablica_przelorzenia[1, 1] + Tablica_przelorzenia[2, 1]);
-            chPT.Series["chPT"].Points.AddXY("3", Tablica_przelorzenia[0, 2] + Tablica_przelorzenia[1, 2] + Tablica_przelorzenia[2, 2]);
-            chPT.Series["chPT"].Points.AddXY("4", Tablica_przelorzenia[0, 3] + Tablica_przelorzenia[1, 3] + Tablica_przelorzenia[2, 3]);
-            chPT.Series["chPT"].Points.AddXY("5", Tablica_przelorzenia[0, 4] + Tablica_przelorzenia[1, 4] + Tablica_przelorzenia[2, 4]);
-            chPT.Series["chPT"].Points.AddXY("6", Tablica_przelorzenia[0, 5] + Tablica_przelorzenia[1, 5] + Tablica_przelorzenia[2, 5]);
-            chPT.Series["chPT"].Points.AddXY("7", Tablica_przelorzenia[0, 6] + Tablica_przelorzenia[1, 6] + Tablica_przelorzenia[2, 6]);
-            chPT.Series["chPT"].Points.AddXY("8", Tablica_przelorzenia[0, 7] + Tablica_przelorzenia[1, 7] + Tablica_przelorzenia[2, 7]);
-            chPT.Series["chPT"].Points.AddXY("9", Tablica_przelorzenia[0, 8] + Tablica_przelorzenia[1, 8] + Tablica_przelorzenia[2, 8]);
+            for (int i = 0; i < 9; i++)
+            {
+                chPT.Series["chPT"].Points.AddXY((i + 1).ToString(),
+                    Tablica_przelorzenia[0, i] + Tablica_przelorzenia[1, i] + Tablica_przelorzenia[2, i]);
+            }
 
             chV.Series["chV"].Points.Clear();
             chK.Series["chK"].Points.Clear();
@@ -90,19 +86,19 @@ namespace Aplikacja_dyplomowa
             chHP.Series["chHP"].Points.Clear();
             chG.Series["chG"].Points.Clear();
 
-            
+
 
             lpredkosc = 0;
-             lpredkoscmax = 0;
-             lpredkoscsr = 0;
-             lGmax = 0;
-             lGmin = 0;
-             lKmax = 0;
-             lKsr = 0;
-             lObrK = 0;
-             lUlub = 0;
-             lHamL = 0;
-             lHamP = 0;
+            lpredkoscmax = 0;
+            lpredkoscsr = 0;
+            lGmax = 0;
+            lGmin = 0;
+            lKmax = 0;
+            lKsr = 0;
+            lObrK = 0;
+            lUlub = 0;
+            lHamL = 0;
+            lHamP = 0;
 
 
             for (int i = 0; i < lista.Count; i++)
@@ -176,10 +172,10 @@ namespace Aplikacja_dyplomowa
         }
         void Ile_rekordów()
         {
-            StripStatus.Text = "Rekordów: " + lista.Count.ToString() + " (" + TimeSpan.FromSeconds(lista.Count).ToString() + ") ["+ Path.GetFileName(sciezka_pliku) + "]";
+            StripStatus.Text = "Rekordów: " + lista.Count.ToString() + " (" + TimeSpan.FromSeconds(lista.Count).ToString() + ") [" + Path.GetFileName(sciezka_pliku) + "]";
         }
 
-        void wypelnij_t_przyspieszenia()
+        void Wypelnij_t_przyspieszenia()
         {
             Tablica_przyspieszenie = new float[lista.Count];
 
@@ -201,7 +197,7 @@ namespace Aplikacja_dyplomowa
             }
         }
 
-        void wypelnij_t_przelozenia()
+        void Wypelnij_t_przelozenia()
         {
             for (int i = 0; i < lista.Count; i++)
             {
@@ -209,7 +205,7 @@ namespace Aplikacja_dyplomowa
             }
         }
 
-        void wypelnij_t_kadencji()
+        void Wypelnij_t_kadencji()
         {
             Tablica_kadencja = new byte[lista.Count];
             int licznik = 0;
@@ -253,7 +249,6 @@ namespace Aplikacja_dyplomowa
             string[] ports = SerialPort.GetPortNames();
             cBoxPortCom.Items.AddRange(ports);
             Form1.SetDesktopLocation((Screen.PrimaryScreen.Bounds.Width - Form1.Size.Width) / 2, (Screen.PrimaryScreen.Bounds.Height - Form1.Size.Height) / 2);
-
         }
 
         void Otworz_port()
@@ -285,10 +280,8 @@ namespace Aplikacja_dyplomowa
             }
         }
 
-        private void zToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ZToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-
             //'I  |  I  |  HL |  HP |  K  |  K  |  V  |  V          
             //'inf       hamulec L  P  Obr. korby
             //'V  |  V  |  V  |  V  |  V  |  V  |  V  |  V
@@ -310,7 +303,7 @@ namespace Aplikacja_dyplomowa
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 sciezka_pliku = openFileDialog1.FileName;
-                
+
                 try
                 {
                     StreamReader sr = new StreamReader(sciezka_pliku);
@@ -318,7 +311,7 @@ namespace Aplikacja_dyplomowa
                     sr.Close();
                     Konwertuj_dane();
                     Wypełnij_wykresy();
-                    
+
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -329,8 +322,6 @@ namespace Aplikacja_dyplomowa
                     MessageBox.Show("Exception: " + ex.Message);
                     return;
                 }
-
-
             }
         }
         //Format struktury:
@@ -359,7 +350,7 @@ namespace Aplikacja_dyplomowa
             {
 
                 linia = tBoxTemp.Lines[x++];
-                
+
                 temp = Convert.ToByte(linia);
 
                 //HL
@@ -384,7 +375,7 @@ namespace Aplikacja_dyplomowa
                 temp2 += temp;
                 d.predkosc = (float)temp2 / 10;
 
-                if (x < xk + 1)               
+                if (x < xk + 1)
                 {
                     linia = tBoxTemp.Lines[x++];
                     temp = Convert.ToByte(linia);
@@ -402,17 +393,14 @@ namespace Aplikacja_dyplomowa
                         x--;
                     }
                 }
-
                 lista.Add(d);
                 d.sekunda++;
             }
-
-
         }
 
-        private void zapiszPlikToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ZapiszPlikToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (tBoxTemp.Text!="")
+            if (tBoxTemp.Text != "")
             {
                 saveFileDialog1.InitialDirectory = "";
                 saveFileDialog1.Title = "Otwórz plik programu";
@@ -441,12 +429,11 @@ namespace Aplikacja_dyplomowa
             }
         }
 
-        private void importujDaneToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ImportujDaneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form4 child = new Form4();
             child.Show();
             child.SetDesktopLocation(DesktopLocation.X + (Size.Width / 2) - child.Size.Width / 2, DesktopLocation.Y + (Size.Height / 2) - child.Size.Height / 2);
-
         }
 
         private void Otworz_port_cBox(object sender, EventArgs e)
@@ -471,97 +458,79 @@ namespace Aplikacja_dyplomowa
             {
                 Point Punkt_myszy = new Point(x, y);
 
-
-
-
                 chV.ChartAreas[0].CursorX.Interval = 1;
                 chV.ChartAreas[0].CursorY.Interval = 0;
 
                 chV.ChartAreas[0].CursorX.SetCursorPixelPosition(Punkt_myszy, true);
-                //chV.ChartAreas[0].CursorY.SetCursorPixelPosition(Punkt_myszy, true);
 
                 chG.ChartAreas[0].CursorX.SetCursorPixelPosition(Punkt_myszy, true);
                 chK.ChartAreas[0].CursorX.SetCursorPixelPosition(Punkt_myszy, true);
                 chHL.ChartAreas[0].CursorX.SetCursorPixelPosition(Punkt_myszy, true);
                 chHP.ChartAreas[0].CursorX.SetCursorPixelPosition(Punkt_myszy, true);
 
-                //chV.ChartAreas[0].CursorY.SetCursorPixelPosition(Punkt_myszy, true);
-
-                //textx.Text = "x: " + String.Format("{0:N0}", chV.ChartAreas[0].AxisX.PixelPositionToValue(e.X));
-                //texty.Text = "y: " + String.Format("{0:N1}", chV.ChartAreas[0].AxisY.PixelPositionToValue(e.Y));
-
                 temp = (int)(chV.ChartAreas[0].AxisX.PixelPositionToValue(x));
 
-                //    temp3 = (int)(chV.ChartAreas[0].AxisX.PixelPositionToValue(0));
-                //    MessageBox.Show("Exception: " + ex.Message);
-                //}
                 if (temp < 0) temp = 0;
                 if (temp >= lista.Count) temp = lista.Count - 1;
 
-                StripStatus.Text = TimeSpan.FromSeconds(temp).ToString() + "  Prędkość: " + String.Format("{0:N1}", lista[temp].predkosc) + 
+                StripStatus.Text = TimeSpan.FromSeconds(temp).ToString() + "  Prędkość: " + String.Format("{0:N1}", lista[temp].predkosc) +
                     "km/h  Kadencja: " + Tablica_kadencja[temp].ToString() + "obr/min  Przyśpieszenie: " + String.Format("{0:N1}", Tablica_przyspieszenie[temp]) + "G  ";
                 if (lista[temp].hl == 1) { StripStatus.Text += "Hamulec przedni: ON  "; } else { StripStatus.Text += "Hamulec przedni: OFF  "; }
                 if (lista[temp].hp == 1) { StripStatus.Text += "Hamulec tylny: ON"; } else { StripStatus.Text += "Hamulec tylny: OFF"; }
 
-
-                //HitTestResult wynik = chV.HitTest(x, y);
-
-                //if (wynik.PointIndex > -1 && wynik.ChartArea != null)
-                //{
-                //    punktx.Text = String.Format("{0:N1}", wynik.Series.Points[wynik.PointIndex].XValue);
-                //    punkty.Text = String.Format("{0:N1}", wynik.Series.Points[wynik.PointIndex].YValues[0]);
             }
         }
-        private void chV_MouseMove(object sender, MouseEventArgs e)
+        #region Akcja myszki na wykresach głównych - aktualizacja położenia - wartości chwiliowe
+        private void ChV_MouseMove(object sender, MouseEventArgs e)
         {
             Wartosc_chwilowa(e.X, e.Y);
         }
 
-        private void chK_MouseMove(object sender, MouseEventArgs e)
+        private void ChK_MouseMove(object sender, MouseEventArgs e)
         {
             Wartosc_chwilowa(e.X, e.Y);
         }
 
-        private void chG_MouseMove(object sender, MouseEventArgs e)
+        private void ChG_MouseMove(object sender, MouseEventArgs e)
         {
             Wartosc_chwilowa(e.X, e.Y);
         }
 
-        private void chHP_MouseMove(object sender, MouseEventArgs e)
+        private void ChHP_MouseMove(object sender, MouseEventArgs e)
         {
             Wartosc_chwilowa(e.X, e.Y);
         }
 
-        private void chHL_MouseMove(object sender, MouseEventArgs e)
+        private void ChHL_MouseMove(object sender, MouseEventArgs e)
         {
             Wartosc_chwilowa(e.X, e.Y);
         }
 
-        private void chV_MouseLeave(object sender, EventArgs e)
+        private void ChV_MouseLeave(object sender, EventArgs e)
         {
             Ile_rekordów();
             wgrane = true;
         }
 
-        private void chK_MouseLeave(object sender, EventArgs e)
+        private void ChK_MouseLeave(object sender, EventArgs e)
         {
             Ile_rekordów();
         }
 
-        private void chG_MouseLeave(object sender, EventArgs e)
+        private void ChG_MouseLeave(object sender, EventArgs e)
         {
             Ile_rekordów();
         }
 
-        private void chHP_MouseLeave(object sender, EventArgs e)
+        private void ChHP_MouseLeave(object sender, EventArgs e)
         {
             Ile_rekordów();
         }
 
-        private void chHL_MouseLeave(object sender, EventArgs e)
+        private void ChHL_MouseLeave(object sender, EventArgs e)
         {
             Ile_rekordów();
         }
-
+        #endregion
     }
 }

@@ -43,7 +43,7 @@ namespace Aplikacja_dyplomowa
             this.btnAnuluj.TabIndex = 4;
             this.btnAnuluj.Text = "&Importuj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
-            this.btnAnuluj.Click += new System.EventHandler(this.btnAnuluj_Click);
+            this.btnAnuluj.Click += new System.EventHandler(this.BtnAnuluj_Click);
             // 
             // label1
             // 
@@ -71,7 +71,6 @@ namespace Aplikacja_dyplomowa
             this.Name = "Form4";
             this.Text = "Form4";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
-            this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
