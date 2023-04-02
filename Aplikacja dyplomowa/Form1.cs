@@ -67,12 +67,12 @@ namespace Aplikacja_dyplomowa
             chPP.Series["chPP"].Points.Clear();
             for (int i = 0; i < 3; i++)
             {
-                chPP.Series["chPP"].Points.AddXY((i+1).ToString(),
+                chPP.Series["chPP"].Points.AddXY((i + 1).ToString(),
                     (Tablica_przelorzenia[i, 0] + Tablica_przelorzenia[i, 1] + Tablica_przelorzenia[i, 2] +
                     Tablica_przelorzenia[i, 3] + Tablica_przelorzenia[i, 4] + Tablica_przelorzenia[i, 5] +
                     Tablica_przelorzenia[i, 6] + Tablica_przelorzenia[i, 7] + Tablica_przelorzenia[i, 8]));
             }
-            
+
             chPT.Series["chPT"].Points.Clear();
             for (int i = 0; i < 9; i++)
             {
@@ -248,7 +248,7 @@ namespace Aplikacja_dyplomowa
             cBoxPortCom.Items.Clear();
             string[] ports = SerialPort.GetPortNames();
             cBoxPortCom.Items.AddRange(ports);
-            Form1.SetDesktopLocation((Screen.PrimaryScreen.Bounds.Width - Form1.Size.Width) / 2, (Screen.PrimaryScreen.Bounds.Height - Form1.Size.Height) / 2);
+            //Form1.SetDesktopLocation((Screen.PrimaryScreen.Bounds.Width - Form1.Size.Width) / 2, (Screen.PrimaryScreen.Bounds.Height - Form1.Size.Height) / 2);
         }
 
         void Otworz_port()
@@ -532,5 +532,12 @@ namespace Aplikacja_dyplomowa
             Ile_rekordów();
         }
         #endregion
+
+        private void kalendarzToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 child = new Form3();
+            child.Show();
+            child.SetDesktopLocation(DesktopLocation.X + (Size.Width / 2) - child.Size.Width / 2, DesktopLocation.Y + (Size.Height / 2) - child.Size.Height / 2);
+        }
     }
 }

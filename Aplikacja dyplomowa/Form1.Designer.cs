@@ -106,6 +106,7 @@ namespace Aplikacja_dyplomowa
             this.labVmax = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.labDyst = new System.Windows.Forms.Label();
+            this.kalendarzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chPP)).BeginInit();
@@ -128,6 +129,7 @@ namespace Aplikacja_dyplomowa
             this.zToolStripMenuItem,
             this.zapiszPlikToolStripMenuItem,
             this.importujDaneToolStripMenuItem,
+            this.kalendarzToolStripMenuItem,
             this.oprogramieToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -174,7 +176,7 @@ namespace Aplikacja_dyplomowa
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(393, 6);
+            this.label1.Location = new System.Drawing.Point(471, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 8;
@@ -183,7 +185,7 @@ namespace Aplikacja_dyplomowa
             // cBoxPortCom
             // 
             this.cBoxPortCom.FormattingEnabled = true;
-            this.cBoxPortCom.Location = new System.Drawing.Point(455, 2);
+            this.cBoxPortCom.Location = new System.Drawing.Point(533, 2);
             this.cBoxPortCom.Name = "cBoxPortCom";
             this.cBoxPortCom.Size = new System.Drawing.Size(65, 21);
             this.cBoxPortCom.TabIndex = 7;
@@ -194,7 +196,7 @@ namespace Aplikacja_dyplomowa
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblStatus.Location = new System.Drawing.Point(546, 6);
+            this.lblStatus.Location = new System.Drawing.Point(624, 6);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(30, 13);
             this.lblStatus.TabIndex = 8;
@@ -205,7 +207,7 @@ namespace Aplikacja_dyplomowa
             this.rBtnON.AutoSize = true;
             this.rBtnON.Checked = true;
             this.rBtnON.Enabled = false;
-            this.rBtnON.Location = new System.Drawing.Point(529, 6);
+            this.rBtnON.Location = new System.Drawing.Point(607, 6);
             this.rBtnON.Name = "rBtnON";
             this.rBtnON.Size = new System.Drawing.Size(14, 13);
             this.rBtnON.TabIndex = 9;
@@ -815,6 +817,13 @@ namespace Aplikacja_dyplomowa
             this.labDyst.TabIndex = 27;
             this.labDyst.Text = "--------";
             // 
+            // kalendarzToolStripMenuItem
+            // 
+            this.kalendarzToolStripMenuItem.Name = "kalendarzToolStripMenuItem";
+            this.kalendarzToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.kalendarzToolStripMenuItem.Text = "Kalendarz";
+            this.kalendarzToolStripMenuItem.Click += new System.EventHandler(this.kalendarzToolStripMenuItem_Click);
+            // 
             // Aplikacja_dyplomowa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -910,6 +919,7 @@ namespace Aplikacja_dyplomowa
         private System.Windows.Forms.Label labDyst;
         private System.Windows.Forms.DataVisualization.Charting.Chart chPT;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStripMenuItem kalendarzToolStripMenuItem;
     }
 }
 
