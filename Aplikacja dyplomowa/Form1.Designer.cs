@@ -59,6 +59,7 @@ namespace Aplikacja_dyplomowa
             this.zToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszPlikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importujDaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalendarzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oprogramieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -106,7 +107,6 @@ namespace Aplikacja_dyplomowa
             this.labVmax = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.labDyst = new System.Windows.Forms.Label();
-            this.kalendarzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chPP)).BeginInit();
@@ -159,6 +159,13 @@ namespace Aplikacja_dyplomowa
             this.importujDaneToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.importujDaneToolStripMenuItem.Text = "&Importuj dane";
             this.importujDaneToolStripMenuItem.Click += new System.EventHandler(this.ImportujDaneToolStripMenuItem_Click);
+            // 
+            // kalendarzToolStripMenuItem
+            // 
+            this.kalendarzToolStripMenuItem.Name = "kalendarzToolStripMenuItem";
+            this.kalendarzToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.kalendarzToolStripMenuItem.Text = "Kalendarz";
+            this.kalendarzToolStripMenuItem.Click += new System.EventHandler(this.kalendarzToolStripMenuItem_Click);
             // 
             // oprogramieToolStripMenuItem
             // 
@@ -817,19 +824,12 @@ namespace Aplikacja_dyplomowa
             this.labDyst.TabIndex = 27;
             this.labDyst.Text = "--------";
             // 
-            // kalendarzToolStripMenuItem
-            // 
-            this.kalendarzToolStripMenuItem.Name = "kalendarzToolStripMenuItem";
-            this.kalendarzToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.kalendarzToolStripMenuItem.Text = "Kalendarz";
-            this.kalendarzToolStripMenuItem.Click += new System.EventHandler(this.kalendarzToolStripMenuItem_Click);
-            // 
             // Aplikacja_dyplomowa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Aplikacja_dyplomowa.Properties.Resources.urrun_launch2;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 637);
             this.Controls.Add(this.PanelTylny);
             this.Controls.Add(this.statusStrip1);

@@ -63,6 +63,26 @@ namespace Aplikacja_dyplomowa.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Strzałka {
+            get {
+                object obj = ResourceManager.GetObject("Strzałka", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Strzałka2 {
+            get {
+                object obj = ResourceManager.GetObject("Strzałka2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap urrun_launch {
             get {
                 object obj = ResourceManager.GetObject("urrun_launch", resourceCulture);

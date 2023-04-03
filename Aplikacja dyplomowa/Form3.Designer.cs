@@ -29,6 +29,7 @@ namespace Aplikacja_dyplomowa
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -78,12 +79,13 @@ namespace Aplikacja_dyplomowa
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.LBLustawionaData = new System.Windows.Forms.Label();
             this.LBLaktData = new System.Windows.Forms.Label();
-            this.button43 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.gBox = new System.Windows.Forms.GroupBox();
             this.tb = new System.Windows.Forms.TextBox();
+            this.LBLwybranaData = new System.Windows.Forms.Label();
+            this.BTNdataPrzód = new System.Windows.Forms.Button();
+            this.BTNdataWstecz = new System.Windows.Forms.Button();
             this.gBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +95,7 @@ namespace Aplikacja_dyplomowa
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "31";
+            this.button1.Text = "x";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -102,7 +104,7 @@ namespace Aplikacja_dyplomowa
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 23);
             this.button2.TabIndex = 1;
-            this.button2.Text = "31";
+            this.button2.Text = "x";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -111,7 +113,7 @@ namespace Aplikacja_dyplomowa
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(30, 23);
             this.button3.TabIndex = 2;
-            this.button3.Text = "31";
+            this.button3.Text = "x";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -120,7 +122,7 @@ namespace Aplikacja_dyplomowa
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(30, 23);
             this.button4.TabIndex = 3;
-            this.button4.Text = "31";
+            this.button4.Text = "x";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -129,7 +131,7 @@ namespace Aplikacja_dyplomowa
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(30, 23);
             this.button5.TabIndex = 4;
-            this.button5.Text = "31";
+            this.button5.Text = "x";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button6
@@ -138,7 +140,7 @@ namespace Aplikacja_dyplomowa
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(30, 23);
             this.button6.TabIndex = 5;
-            this.button6.Text = "31";
+            this.button6.Text = "x";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button7
@@ -147,7 +149,7 @@ namespace Aplikacja_dyplomowa
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(30, 23);
             this.button7.TabIndex = 6;
-            this.button7.Text = "31";
+            this.button7.Text = "x";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // button8
@@ -156,7 +158,7 @@ namespace Aplikacja_dyplomowa
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(30, 23);
             this.button8.TabIndex = 7;
-            this.button8.Text = "31";
+            this.button8.Text = "x";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // button9
@@ -165,7 +167,7 @@ namespace Aplikacja_dyplomowa
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(30, 23);
             this.button9.TabIndex = 8;
-            this.button9.Text = "31";
+            this.button9.Text = "x";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // button10
@@ -174,7 +176,7 @@ namespace Aplikacja_dyplomowa
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(30, 23);
             this.button10.TabIndex = 9;
-            this.button10.Text = "31";
+            this.button10.Text = "x";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // button11
@@ -183,7 +185,7 @@ namespace Aplikacja_dyplomowa
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(30, 23);
             this.button11.TabIndex = 10;
-            this.button11.Text = "31";
+            this.button11.Text = "x";
             this.button11.UseVisualStyleBackColor = true;
             // 
             // button12
@@ -192,7 +194,7 @@ namespace Aplikacja_dyplomowa
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(30, 23);
             this.button12.TabIndex = 11;
-            this.button12.Text = "31";
+            this.button12.Text = "x";
             this.button12.UseVisualStyleBackColor = true;
             // 
             // button13
@@ -201,7 +203,7 @@ namespace Aplikacja_dyplomowa
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(30, 23);
             this.button13.TabIndex = 12;
-            this.button13.Text = "31";
+            this.button13.Text = "x";
             this.button13.UseVisualStyleBackColor = true;
             // 
             // button14
@@ -210,7 +212,7 @@ namespace Aplikacja_dyplomowa
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(30, 23);
             this.button14.TabIndex = 13;
-            this.button14.Text = "31";
+            this.button14.Text = "x";
             this.button14.UseVisualStyleBackColor = true;
             // 
             // button15
@@ -219,7 +221,7 @@ namespace Aplikacja_dyplomowa
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(30, 23);
             this.button15.TabIndex = 14;
-            this.button15.Text = "31";
+            this.button15.Text = "x";
             this.button15.UseVisualStyleBackColor = true;
             // 
             // button16
@@ -228,7 +230,7 @@ namespace Aplikacja_dyplomowa
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(30, 23);
             this.button16.TabIndex = 15;
-            this.button16.Text = "31";
+            this.button16.Text = "x";
             this.button16.UseVisualStyleBackColor = true;
             // 
             // button17
@@ -237,7 +239,7 @@ namespace Aplikacja_dyplomowa
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(30, 23);
             this.button17.TabIndex = 16;
-            this.button17.Text = "31";
+            this.button17.Text = "x";
             this.button17.UseVisualStyleBackColor = true;
             // 
             // button18
@@ -246,7 +248,7 @@ namespace Aplikacja_dyplomowa
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(30, 23);
             this.button18.TabIndex = 17;
-            this.button18.Text = "31";
+            this.button18.Text = "x";
             this.button18.UseVisualStyleBackColor = true;
             // 
             // button19
@@ -255,7 +257,7 @@ namespace Aplikacja_dyplomowa
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(30, 23);
             this.button19.TabIndex = 18;
-            this.button19.Text = "31";
+            this.button19.Text = "x";
             this.button19.UseVisualStyleBackColor = true;
             // 
             // button20
@@ -264,7 +266,7 @@ namespace Aplikacja_dyplomowa
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(30, 23);
             this.button20.TabIndex = 19;
-            this.button20.Text = "31";
+            this.button20.Text = "x";
             this.button20.UseVisualStyleBackColor = true;
             // 
             // button21
@@ -273,7 +275,7 @@ namespace Aplikacja_dyplomowa
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(30, 23);
             this.button21.TabIndex = 20;
-            this.button21.Text = "31";
+            this.button21.Text = "x";
             this.button21.UseVisualStyleBackColor = true;
             // 
             // button22
@@ -282,7 +284,7 @@ namespace Aplikacja_dyplomowa
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(30, 23);
             this.button22.TabIndex = 21;
-            this.button22.Text = "31";
+            this.button22.Text = "x";
             this.button22.UseVisualStyleBackColor = true;
             // 
             // button23
@@ -291,7 +293,7 @@ namespace Aplikacja_dyplomowa
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(30, 23);
             this.button23.TabIndex = 22;
-            this.button23.Text = "31";
+            this.button23.Text = "x";
             this.button23.UseVisualStyleBackColor = true;
             // 
             // button24
@@ -300,7 +302,7 @@ namespace Aplikacja_dyplomowa
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(30, 23);
             this.button24.TabIndex = 23;
-            this.button24.Text = "31";
+            this.button24.Text = "x";
             this.button24.UseVisualStyleBackColor = true;
             // 
             // button25
@@ -309,7 +311,7 @@ namespace Aplikacja_dyplomowa
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(30, 23);
             this.button25.TabIndex = 24;
-            this.button25.Text = "31";
+            this.button25.Text = "x";
             this.button25.UseVisualStyleBackColor = true;
             // 
             // button26
@@ -318,7 +320,7 @@ namespace Aplikacja_dyplomowa
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(30, 23);
             this.button26.TabIndex = 25;
-            this.button26.Text = "31";
+            this.button26.Text = "x";
             this.button26.UseVisualStyleBackColor = true;
             // 
             // button27
@@ -327,7 +329,7 @@ namespace Aplikacja_dyplomowa
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(30, 23);
             this.button27.TabIndex = 26;
-            this.button27.Text = "31";
+            this.button27.Text = "x";
             this.button27.UseVisualStyleBackColor = true;
             // 
             // button28
@@ -336,7 +338,7 @@ namespace Aplikacja_dyplomowa
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(30, 23);
             this.button28.TabIndex = 27;
-            this.button28.Text = "31";
+            this.button28.Text = "x";
             this.button28.UseVisualStyleBackColor = true;
             // 
             // button29
@@ -345,7 +347,7 @@ namespace Aplikacja_dyplomowa
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(30, 23);
             this.button29.TabIndex = 28;
-            this.button29.Text = "31";
+            this.button29.Text = "x";
             this.button29.UseVisualStyleBackColor = true;
             // 
             // button30
@@ -354,7 +356,7 @@ namespace Aplikacja_dyplomowa
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(30, 23);
             this.button30.TabIndex = 29;
-            this.button30.Text = "31";
+            this.button30.Text = "x";
             this.button30.UseVisualStyleBackColor = true;
             // 
             // button31
@@ -363,7 +365,7 @@ namespace Aplikacja_dyplomowa
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(30, 23);
             this.button31.TabIndex = 30;
-            this.button31.Text = "31";
+            this.button31.Text = "x";
             this.button31.UseVisualStyleBackColor = true;
             // 
             // button32
@@ -372,7 +374,7 @@ namespace Aplikacja_dyplomowa
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(30, 23);
             this.button32.TabIndex = 31;
-            this.button32.Text = "31";
+            this.button32.Text = "x";
             this.button32.UseVisualStyleBackColor = true;
             // 
             // button33
@@ -381,7 +383,7 @@ namespace Aplikacja_dyplomowa
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(30, 23);
             this.button33.TabIndex = 32;
-            this.button33.Text = "31";
+            this.button33.Text = "x";
             this.button33.UseVisualStyleBackColor = true;
             // 
             // button34
@@ -390,7 +392,7 @@ namespace Aplikacja_dyplomowa
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(30, 23);
             this.button34.TabIndex = 33;
-            this.button34.Text = "31";
+            this.button34.Text = "x";
             this.button34.UseVisualStyleBackColor = true;
             // 
             // button35
@@ -399,7 +401,7 @@ namespace Aplikacja_dyplomowa
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(30, 23);
             this.button35.TabIndex = 34;
-            this.button35.Text = "31";
+            this.button35.Text = "x";
             this.button35.UseVisualStyleBackColor = true;
             // 
             // button36
@@ -408,7 +410,7 @@ namespace Aplikacja_dyplomowa
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(30, 23);
             this.button36.TabIndex = 35;
-            this.button36.Text = "31";
+            this.button36.Text = "x";
             this.button36.UseVisualStyleBackColor = true;
             // 
             // button37
@@ -417,7 +419,7 @@ namespace Aplikacja_dyplomowa
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(30, 23);
             this.button37.TabIndex = 36;
-            this.button37.Text = "31";
+            this.button37.Text = "x";
             this.button37.UseVisualStyleBackColor = true;
             // 
             // button38
@@ -426,7 +428,7 @@ namespace Aplikacja_dyplomowa
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(30, 23);
             this.button38.TabIndex = 37;
-            this.button38.Text = "31";
+            this.button38.Text = "x";
             this.button38.UseVisualStyleBackColor = true;
             // 
             // button39
@@ -435,7 +437,7 @@ namespace Aplikacja_dyplomowa
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(30, 23);
             this.button39.TabIndex = 38;
-            this.button39.Text = "31";
+            this.button39.Text = "x";
             this.button39.UseVisualStyleBackColor = true;
             // 
             // button40
@@ -444,7 +446,7 @@ namespace Aplikacja_dyplomowa
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(30, 23);
             this.button40.TabIndex = 39;
-            this.button40.Text = "31";
+            this.button40.Text = "x";
             this.button40.UseVisualStyleBackColor = true;
             // 
             // button41
@@ -453,7 +455,7 @@ namespace Aplikacja_dyplomowa
             this.button41.Name = "button41";
             this.button41.Size = new System.Drawing.Size(30, 23);
             this.button41.TabIndex = 40;
-            this.button41.Text = "31";
+            this.button41.Text = "x";
             this.button41.UseVisualStyleBackColor = true;
             // 
             // button42
@@ -462,7 +464,7 @@ namespace Aplikacja_dyplomowa
             this.button42.Name = "button42";
             this.button42.Size = new System.Drawing.Size(30, 23);
             this.button42.TabIndex = 41;
-            this.button42.Text = "31";
+            this.button42.Text = "x";
             this.button42.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -528,39 +530,23 @@ namespace Aplikacja_dyplomowa
             this.label7.TabIndex = 48;
             this.label7.Text = "N";
             // 
-            // LBLustawionaData
+            // LBLaktData
             // 
-            this.LBLustawionaData.AutoSize = true;
-            this.LBLustawionaData.Location = new System.Drawing.Point(156, 50);
-            this.LBLustawionaData.Name = "LBLustawionaData";
-            this.LBLustawionaData.Size = new System.Drawing.Size(76, 13);
-            this.LBLustawionaData.TabIndex = 49;
-            this.LBLustawionaData.Text = "kwiecień 2023";
-            // 
-            // LBLaktualnaData
-            // 
-            this.LBLaktData.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LBLaktData.Location = new System.Drawing.Point(144, 26);
-            this.LBLaktData.Name = "LBLaktualnaData";
+            this.LBLaktData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LBLaktData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LBLaktData.Location = new System.Drawing.Point(92, 12);
+            this.LBLaktData.Name = "LBLaktData";
             this.LBLaktData.Size = new System.Drawing.Size(100, 13);
             this.LBLaktData.TabIndex = 50;
             this.LBLaktData.Text = "aktualna data";
             this.LBLaktData.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // button43
-            // 
-            this.button43.Location = new System.Drawing.Point(153, 318);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(68, 42);
-            this.button43.TabIndex = 51;
-            this.button43.Text = "button43";
-            this.button43.UseVisualStyleBackColor = true;
-            this.button43.Click += new System.EventHandler(this.button43_Click);
+            this.LBLaktData.Click += new System.EventHandler(this.LBLaktData_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(76, 292);
+            this.label8.Location = new System.Drawing.Point(26, 278);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 52;
@@ -617,7 +603,7 @@ namespace Aplikacja_dyplomowa
             this.gBox.Controls.Add(this.button3);
             this.gBox.Controls.Add(this.button2);
             this.gBox.Controls.Add(this.button1);
-            this.gBox.Location = new System.Drawing.Point(62, 68);
+            this.gBox.Location = new System.Drawing.Point(10, 54);
             this.gBox.Name = "gBox";
             this.gBox.Size = new System.Drawing.Size(265, 210);
             this.gBox.TabIndex = 53;
@@ -625,25 +611,60 @@ namespace Aplikacja_dyplomowa
             // 
             // tb
             // 
-            this.tb.Location = new System.Drawing.Point(37, 375);
+            this.tb.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tb.Location = new System.Drawing.Point(0, 387);
             this.tb.Multiline = true;
             this.tb.Name = "tb";
-            this.tb.Size = new System.Drawing.Size(280, 75);
+            this.tb.Size = new System.Drawing.Size(284, 75);
             this.tb.TabIndex = 54;
+            // 
+            // LBLwybranaData
+            // 
+            this.LBLwybranaData.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LBLwybranaData.Location = new System.Drawing.Point(92, 35);
+            this.LBLwybranaData.Name = "LBLwybranaData";
+            this.LBLwybranaData.Size = new System.Drawing.Size(100, 13);
+            this.LBLwybranaData.TabIndex = 55;
+            this.LBLwybranaData.Text = "wybrana data";
+            this.LBLwybranaData.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // BTNdataPrzód
+            // 
+            this.BTNdataPrzód.BackgroundImage = global::Aplikacja_dyplomowa.Properties.Resources.Strzałka2;
+            this.BTNdataPrzód.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BTNdataPrzód.Location = new System.Drawing.Point(199, 30);
+            this.BTNdataPrzód.Name = "BTNdataPrzód";
+            this.BTNdataPrzód.Size = new System.Drawing.Size(30, 23);
+            this.BTNdataPrzód.TabIndex = 56;
+            this.BTNdataPrzód.UseVisualStyleBackColor = true;
+            this.BTNdataPrzód.Click += new System.EventHandler(this.BTNdataPrzód_Click);
+            // 
+            // BTNdataWstecz
+            // 
+            this.BTNdataWstecz.BackgroundImage = global::Aplikacja_dyplomowa.Properties.Resources.Strzałka;
+            this.BTNdataWstecz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BTNdataWstecz.Location = new System.Drawing.Point(55, 30);
+            this.BTNdataWstecz.Name = "BTNdataWstecz";
+            this.BTNdataWstecz.Size = new System.Drawing.Size(30, 23);
+            this.BTNdataWstecz.TabIndex = 49;
+            this.BTNdataWstecz.UseVisualStyleBackColor = true;
+            this.BTNdataWstecz.Click += new System.EventHandler(this.BTNdataWstecz_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 462);
+            this.ClientSize = new System.Drawing.Size(284, 462);
+            this.Controls.Add(this.BTNdataPrzód);
+            this.Controls.Add(this.BTNdataWstecz);
+            this.Controls.Add(this.LBLwybranaData);
             this.Controls.Add(this.tb);
             this.Controls.Add(this.gBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button43);
             this.Controls.Add(this.LBLaktData);
-            this.Controls.Add(this.LBLustawionaData);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Kalendarz";
             this.gBox.ResumeLayout(false);
             this.gBox.PerformLayout();
             this.ResumeLayout(false);
@@ -702,11 +723,12 @@ namespace Aplikacja_dyplomowa
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label LBLustawionaData;
         private System.Windows.Forms.Label LBLaktData;
-        private System.Windows.Forms.Button button43;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox gBox;
         private System.Windows.Forms.TextBox tb;
+        private System.Windows.Forms.Label LBLwybranaData;
+        private System.Windows.Forms.Button BTNdataWstecz;
+        private System.Windows.Forms.Button BTNdataPrzód;
     }
 }
