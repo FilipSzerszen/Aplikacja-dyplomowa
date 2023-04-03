@@ -164,15 +164,14 @@ namespace Aplikacja_dyplomowa
             // 
             this.kalendarzToolStripMenuItem.Name = "kalendarzToolStripMenuItem";
             this.kalendarzToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.kalendarzToolStripMenuItem.Text = "Kalendarz";
+            this.kalendarzToolStripMenuItem.Text = "&Kalendarz";
             this.kalendarzToolStripMenuItem.Click += new System.EventHandler(this.kalendarzToolStripMenuItem_Click);
             // 
             // oprogramieToolStripMenuItem
             // 
             this.oprogramieToolStripMenuItem.Name = "oprogramieToolStripMenuItem";
-            this.oprogramieToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.oprogramieToolStripMenuItem.Text = "O &programie";
-            this.oprogramieToolStripMenuItem.Visible = false;
+            this.oprogramieToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.oprogramieToolStripMenuItem.Text = "O &mnie";
             // 
             // portToolStripMenuItem
             // 
