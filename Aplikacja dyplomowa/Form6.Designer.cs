@@ -48,6 +48,7 @@ namespace Aplikacja_dyplomowa
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBox1.Location = new System.Drawing.Point(11, 8);
             this.richTextBox1.Name = "richTextBox1";
@@ -71,6 +72,7 @@ namespace Aplikacja_dyplomowa
             this.Name = "Form6";
             this.Text = "O mnie";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form6_FormClosed);
+            this.Shown += new System.EventHandler(this.Form6_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

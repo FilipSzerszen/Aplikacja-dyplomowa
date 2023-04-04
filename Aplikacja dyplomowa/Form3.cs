@@ -110,6 +110,43 @@ namespace Aplikacja_dyplomowa
             LBLwybranaData.Text = data.ToString("Y"); ;
         }
 
+        private void WyczyśćMałeMenu()
+        {
+            LBoxListaDnia.Items.Clear();
+            BtPlus.Enabled = false;
+            BtMinus.Enabled = false;
+            BtWczytaj.Enabled = false;
+        }
+
+        private void WczytajListęDnia(Control sender)
+        {
+            dzień = int.Parse(sender.Text);
+            if (sender.ForeColor == Color.Red)
+            {
+                AktualizujListęDnia();
+            }
+            else LBoxListaDnia.Items.Clear();
+            BtMinus.Enabled = false;
+            BtWczytaj.Enabled = false;
+            if (Aplikacja_dyplomowa.Form1.wgrane) BtPlus.Enabled = true; else BtPlus.Enabled = false;
+        }
+
+        private void TBoxListaDnia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tripLBox = Convert.ToString(this.LBoxListaDnia.SelectedItem);
+            if (tripLBox != null) { BtMinus.Enabled = true; BtWczytaj.Enabled = true; }
+            else { BtMinus.Enabled = false; BtWczytaj.Enabled = false; }
+        }
+
+        private void LBLaktData_Click(object sender, EventArgs e)
+        {
+            dzień = DateTime.Today.Day;
+            miesiąc = DateTime.Today.Month;
+            rok = DateTime.Today.Year;
+            AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+            WyczyśćMałeMenu();
+        }
+
         private void BTNdataWstecz_Click(object sender, EventArgs e)
         {
             if (miesiąc == 1) { miesiąc = 12; rok -= 1; }
@@ -126,86 +163,6 @@ namespace Aplikacja_dyplomowa
             dzień = 1;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
             WyczyśćMałeMenu();
-        }
-        private void WyczyśćMałeMenu()
-        {
-            LBoxListaDnia.Items.Clear();
-            BtPlus.Enabled = false;
-            BtMinus.Enabled = false;
-            BtWczytaj.Enabled = false;
-        }
-
-        private void LBLaktData_Click(object sender, EventArgs e)
-        {
-            dzień = DateTime.Today.Day;
-            miesiąc = DateTime.Today.Month;
-            rok = DateTime.Today.Year;
-            AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
-            WyczyśćMałeMenu();
-        }
-
-        private void WczytajListęDnia(Control sender)
-        {
-            dzień = int.Parse(sender.Text);
-            if (sender.ForeColor == Color.Red)
-            {
-                AktualizujListęDnia();
-            }
-            else LBoxListaDnia.Items.Clear();
-            BtMinus.Enabled = false;
-            BtWczytaj.Enabled = false;
-            if (Aplikacja_dyplomowa.Form1.wgrane) BtPlus.Enabled = true; else BtPlus.Enabled = false;
-        }
-        #region Podłączenie przycisków groupboxa
-        private void Button1_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button2_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button3_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button4_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button5_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button6_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button7_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button8_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button9_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button10_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button11_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button12_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button13_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button14_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button15_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button16_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button17_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button18_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button19_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button20_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button21_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button22_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button23_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button24_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button25_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button26_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button27_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button28_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button29_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button30_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button31_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button32_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button33_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button34_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button35_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button36_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button37_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button38_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button39_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button40_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button41_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        private void Button42_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
-        #endregion
-
-        private void TBoxListaDnia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string tripLBox = Convert.ToString(this.LBoxListaDnia.SelectedItem);
-            if (tripLBox != null) { BtMinus.Enabled = true; BtWczytaj.Enabled = true; }
-            else { BtMinus.Enabled = false; BtWczytaj.Enabled = false; }
         }
 
         private void BtPlus_Click(object sender, EventArgs e)
@@ -291,6 +248,51 @@ namespace Aplikacja_dyplomowa
                 BtWczytaj.Enabled = false;
             }
         }
+
+        #region Podłączenie przycisków groupboxa
+        private void Button1_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button2_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button3_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button4_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button5_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button6_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button7_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button8_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button9_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button10_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button11_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button12_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button13_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button14_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button15_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button16_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button17_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button18_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button19_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button20_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button21_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button22_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button23_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button24_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button25_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button26_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button27_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button28_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button29_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button30_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button31_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button32_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button33_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button34_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button35_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button36_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button37_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button38_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button39_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button40_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button41_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button42_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        #endregion
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
         {
