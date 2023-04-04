@@ -36,7 +36,7 @@ namespace Aplikacja_dyplomowa
 
         public string sciezka_pliku;
         string linia;
-        bool wgrane = false;
+        public bool wgrane = false;
 
         byte[,] Tablica_przelorzenia = new byte[3, 9];
         byte[] Tablica_kadencja;
@@ -86,8 +86,6 @@ namespace Aplikacja_dyplomowa
             chHP.Series["chHP"].Points.Clear();
             chG.Series["chG"].Points.Clear();
 
-
-
             lpredkosc = 0;
             lpredkoscmax = 0;
             lpredkoscsr = 0;
@@ -99,7 +97,6 @@ namespace Aplikacja_dyplomowa
             lUlub = 0;
             lHamL = 0;
             lHamP = 0;
-
 
             for (int i = 0; i < lista.Count; i++)
             {
@@ -166,9 +163,6 @@ namespace Aplikacja_dyplomowa
             //chG.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             //chG.ChartAreas[0].CursorX.AutoScroll = true;
             //chG.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
-
-
-
         }
         void Ile_rekordów()
         {
@@ -299,11 +293,11 @@ namespace Aplikacja_dyplomowa
             openFileDialog1.InitialDirectory = "";
             openFileDialog1.Title = "Otwórz plik programu";
             openFileDialog1.Filter = "Plik analizatora aktywności rowerowej |*.aar|Wszystkie pliki|*.*";
+            openFileDialog1.FileName = "";
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 sciezka_pliku = openFileDialog1.FileName;
-
                 try
                 {
                     StreamReader sr = new StreamReader(sciezka_pliku);
@@ -311,7 +305,6 @@ namespace Aplikacja_dyplomowa
                     sr.Close();
                     Konwertuj_dane();
                     Wypełnij_wykresy();
-
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -403,7 +396,7 @@ namespace Aplikacja_dyplomowa
             if (tBoxTemp.Text != "")
             {
                 saveFileDialog1.InitialDirectory = "";
-                saveFileDialog1.Title = "Otwórz plik programu";
+                saveFileDialog1.Title = "Zapisz plik programu";
                 saveFileDialog1.Filter = "Plik analizatora aktywności rowerowej |*.aar";
                 saveFileDialog1.FileName = "nowy trip";
 
@@ -425,7 +418,7 @@ namespace Aplikacja_dyplomowa
             }
             else
             {
-                MessageBox.Show("Nie można zapisać pustego pliku.\r\nWczytaj lub zaimportuj dane z urządzenia.");
+                MessageBox.Show("Nie można zapisać pustego pliku.\r\nWczytaj lub zaimportuj dane z urządzenia.", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

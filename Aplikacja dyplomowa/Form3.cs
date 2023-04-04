@@ -9,10 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Aplikacja_dyplomowa
 {
     public partial class Form3 : Form
     {
+        public static string plik = "";
+
         private int dzień = DateTime.Today.Day;
         private int miesiąc = DateTime.Today.Month;
         private int rok = DateTime.Today.Year;
@@ -34,8 +37,8 @@ namespace Aplikacja_dyplomowa
         {
             try
             {
+                if (!Directory.Exists(@".\Tripy")) Directory.CreateDirectory(@".\Tripy");
                 string[] ścieżki = Directory.GetFiles(@".\Tripy", "*.aar");
-                TBoxListaDnia2.Text += "\r\nElementów: " + ścieżki.Length;
                 listaAktywności.Clear();
                 for (int i = 0; i < ścieżki.Length; i++)
                 {
@@ -59,8 +62,17 @@ namespace Aplikacja_dyplomowa
             }
             return listaAktywności;
         }
-
-        private void aktualizujDaneDnia()
+        private void aktualizujListęDnia()
+        {
+            LBoxListaDnia.Items.Clear();
+            string temp = listaAktywności.Values.ElementAt(listaAktywności.IndexOfKey(new DateTime(rok, miesiąc, dzień)));
+            using (StringReader reader = new StringReader(temp))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null) LBoxListaDnia.Items.Add(line);
+            }
+        }
+        private void aktualizujDaneNaPodstawieListyDnia()
         {
             string tempString = "";
             DateTime tempData = new DateTime(rok, miesiąc, dzień);
@@ -111,6 +123,7 @@ namespace Aplikacja_dyplomowa
         {
             if (miesiąc == 1) { miesiąc = 12; rok -= 1; }
             else miesiąc -= 1;
+            dzień = 1;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
             wyczyśćMałeMenu();
         }
@@ -119,6 +132,7 @@ namespace Aplikacja_dyplomowa
         {
             if (miesiąc == 12) { miesiąc = 1; rok += 1; }
             else miesiąc += 1;
+            dzień = 1;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
             wyczyśćMałeMenu();
         }
@@ -138,23 +152,17 @@ namespace Aplikacja_dyplomowa
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
             wyczyśćMałeMenu();
         }
+        
         private void wczytajListęDnia(Control sender)
         {
-            LBoxListaDnia.Items.Clear();
+            dzień = int.Parse(sender.Text);
             if (sender.ForeColor == Color.Red)
             {
-                dzień = int.Parse(sender.Text);
-                string temp = listaAktywności.Values.ElementAt(listaAktywności.IndexOfKey(new DateTime(rok, miesiąc, dzień)));
-                using (StringReader reader = new StringReader(temp))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null) LBoxListaDnia.Items.Add(line);
-                }
-            }
-            //DODAĆ WARUNEK ZAIMPORTOWANEGO ALBO WCZYTANEGO PLIKU!!!
+                aktualizujListęDnia();
+            }else LBoxListaDnia.Items.Clear();
             BtMinus.Enabled = false;
             BtWczytaj.Enabled = false;
-            BtPlus.Enabled = true;
+            if (Aplikacja_dyplomowa.Form1.wgrane) BtPlus.Enabled = true; else BtPlus.Enabled = false;
         }
         #region Podłączenie przycisków groupboxa
         private void button1_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
@@ -206,17 +214,24 @@ namespace Aplikacja_dyplomowa
             string tripLBox = Convert.ToString(this.LBoxListaDnia.SelectedItem);
             if (tripLBox != null) { BtMinus.Enabled = true; BtWczytaj.Enabled = true; }
             else { BtMinus.Enabled = false; BtWczytaj.Enabled = false; }
-            TBoxListaDnia2.Text = ((Control)sender).ToString();
-            TBoxListaDnia2.Text += "\r\n" + (e.ToString());
         }
 
         private void BtPlus_Click(object sender, EventArgs e)
         {
-            listaAktywności = zbierzDane();
-            foreach (var aktywność in listaAktywności)
+            if (Aplikacja_dyplomowa.Form1.wgrane)
             {
-                LBoxListaDnia.Items.Add("\r\n" + aktywność.Key.ToString("dd-MM-yyyy") + " " + aktywność.Value);
-                // TBoxListaDnia.Text += "\r\n" + aktywność.Key.ToString("dd-MM-yyyy") + " " + aktywność.Value;
+                plik = Application.StartupPath + @"\Tripy\" + rok.ToString() + (miesiąc < 10 ? ("0" + miesiąc.ToString()) : miesiąc.ToString()) 
+                                                                             + ((dzień < 10) ? ("0" + dzień.ToString()) : dzień.ToString());
+                Form5 child = new Form5();
+                child.ShowDialog();
+
+                listaAktywności = zbierzDane();
+                AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+                aktualizujListęDnia();
+            }
+            else
+            {
+                MessageBox.Show("Nie można zapisać pustego pliku.\r\nWczytaj lub zaimportuj dane z urządzenia.", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -227,11 +242,15 @@ namespace Aplikacja_dyplomowa
             {
                 try
                 {
-                    string plik = Application.StartupPath + @"\Tripy\" + rok.ToString() + (miesiąc < 10 ? ("0" + miesiąc.ToString()) : miesiąc.ToString()) + ((dzień < 10) ? ("0" + dzień.ToString()) : dzień.ToString()) + " " + this.LBoxListaDnia.SelectedItem.ToString();
+                    plik = Application.StartupPath + @"\Tripy\" + rok.ToString() + (miesiąc < 10 ? ("0" + miesiąc.ToString()) : miesiąc.ToString()) + ((dzień < 10) ? ("0" + dzień.ToString()) : dzień.ToString()) + " " + this.LBoxListaDnia.SelectedItem.ToString();
                     if (File.Exists(plik)) File.Delete(plik);
                     else MessageBox.Show("Nie odnaleziono pliku!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     LBoxListaDnia.Items.RemoveAt(LBoxListaDnia.SelectedIndex);
-                    aktualizujDaneDnia();
+                    aktualizujDaneNaPodstawieListyDnia();
+                    //listaAktywności = zbierzDane();
+                    //AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+                    //aktualizujListęDnia();
+
                     BtMinus.Enabled = false;
                     BtWczytaj.Enabled = false;
                 }
@@ -257,7 +276,6 @@ namespace Aplikacja_dyplomowa
                         sr.Close();
                         Aplikacja_dyplomowa.Form1.Konwertuj_dane();
                         Aplikacja_dyplomowa.Form1.Wypełnij_wykresy();
-
                     }
                     catch (IndexOutOfRangeException)
                     {
@@ -268,13 +286,17 @@ namespace Aplikacja_dyplomowa
                         MessageBox.Show("Exception: " + ex.Message);
                         return;
                     }
-                    this.Close();
                     Aplikacja_dyplomowa.Form1.Enabled = true;
                     Aplikacja_dyplomowa.Form1.Focus();
+                    this.Close();
                 }
                 else MessageBox.Show("Nie odnaleziono pliku!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LBoxListaDnia.Items.RemoveAt(LBoxListaDnia.SelectedIndex);
-                aktualizujDaneDnia();
+                aktualizujDaneNaPodstawieListyDnia();
+                //listaAktywności = zbierzDane();
+                //AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+                //aktualizujListęDnia();
+
                 BtMinus.Enabled = false;
                 BtWczytaj.Enabled = false;
             }
@@ -285,5 +307,5 @@ namespace Aplikacja_dyplomowa
             Aplikacja_dyplomowa.Form1.Enabled = true;
             Aplikacja_dyplomowa.Form1.Focus();
         }
-    }
+    } 
 }
