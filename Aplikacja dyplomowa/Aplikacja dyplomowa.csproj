@@ -122,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="Resources\minus.png" />
+    <Content Include="Resources\plus.png" />
+    <Content Include="Resources\przywróć2.png" />
     <None Include="Resources\Strzałka2.png" />
     <None Include="Resources\Strzałka.png" />
   </ItemGroup>

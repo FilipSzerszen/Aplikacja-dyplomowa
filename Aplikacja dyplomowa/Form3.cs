@@ -22,9 +22,10 @@ namespace Aplikacja_dyplomowa
         public Form3()
         {
             InitializeComponent();
+            Aplikacja_dyplomowa.Form1.Enabled = false;
 
             LBLaktData.Text = DateTime.Today.ToString("D");
-            LBLwybranaData.Text = DateTime.Today.ToString("U");
+            LBLwybranaData.Text = DateTime.Today.ToString("Y");
             listaAktywności = zbierzDane();
             AktualizujKalendarz(DateTime.Today);
         }
@@ -59,7 +60,17 @@ namespace Aplikacja_dyplomowa
             return listaAktywności;
         }
 
+        private void aktualizujDaneDnia()
+        {
+            string tempString = "";
+            DateTime tempData = new DateTime(rok, miesiąc, dzień);
 
+            foreach (var Item in LBoxListaDnia.Items) tempString += Item.ToString() + "\r\n";
+            tempString.TrimEnd('\n', '\r');
+
+            listaAktywności.Remove(tempData);
+            listaAktywności.Add(tempData, tempString);
+        }
 
         private void AktualizujKalendarz(DateTime data)
         {
@@ -93,7 +104,7 @@ namespace Aplikacja_dyplomowa
                 }
 
             }
-            LBLwybranaData.Text = data.ToString("U");
+            LBLwybranaData.Text = data.ToString("Y"); ;
         }
 
         private void BTNdataWstecz_Click(object sender, EventArgs e)
@@ -101,6 +112,7 @@ namespace Aplikacja_dyplomowa
             if (miesiąc == 1) { miesiąc = 12; rok -= 1; }
             else miesiąc -= 1;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+            wyczyśćMałeMenu();
         }
 
         private void BTNdataPrzód_Click(object sender, EventArgs e)
@@ -108,6 +120,14 @@ namespace Aplikacja_dyplomowa
             if (miesiąc == 12) { miesiąc = 1; rok += 1; }
             else miesiąc += 1;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+            wyczyśćMałeMenu();
+        }
+        private void wyczyśćMałeMenu()
+        {
+            LBoxListaDnia.Items.Clear();
+            BtPlus.Enabled = false;
+            BtMinus.Enabled = false;
+            BtWczytaj.Enabled = false;
         }
 
         private void LBLaktData_Click(object sender, EventArgs e)
@@ -116,18 +136,25 @@ namespace Aplikacja_dyplomowa
             miesiąc = DateTime.Today.Month;
             rok = DateTime.Today.Year;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+            wyczyśćMałeMenu();
         }
-        private void wczytajListęDnia(Control sender) {
+        private void wczytajListęDnia(Control sender)
+        {
             LBoxListaDnia.Items.Clear();
             if (sender.ForeColor == Color.Red)
             {
-                string temp = listaAktywności.Values.ElementAt(listaAktywności.IndexOfKey(new DateTime(rok, miesiąc, int.Parse(sender.Text))));
+                dzień = int.Parse(sender.Text);
+                string temp = listaAktywności.Values.ElementAt(listaAktywności.IndexOfKey(new DateTime(rok, miesiąc, dzień)));
                 using (StringReader reader = new StringReader(temp))
                 {
                     string line;
                     while ((line = reader.ReadLine()) != null) LBoxListaDnia.Items.Add(line);
-                }              
+                }
             }
+            //DODAĆ WARUNEK ZAIMPORTOWANEGO ALBO WCZYTANEGO PLIKU!!!
+            BtMinus.Enabled = false;
+            BtWczytaj.Enabled = false;
+            BtPlus.Enabled = true;
         }
         #region Podłączenie przycisków groupboxa
         private void button1_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
@@ -176,13 +203,14 @@ namespace Aplikacja_dyplomowa
 
         private void TBoxListaDnia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string sItem = System.Convert.ToString(this.LBoxListaDnia.SelectedItem);
-            System.Windows.Forms.MessageBox.Show(sItem);
+            string tripLBox = Convert.ToString(this.LBoxListaDnia.SelectedItem);
+            if (tripLBox != null) { BtMinus.Enabled = true; BtWczytaj.Enabled = true; }
+            else { BtMinus.Enabled = false; BtWczytaj.Enabled = false; }
             TBoxListaDnia2.Text = ((Control)sender).ToString();
-            TBoxListaDnia2.Text += "\r\n"+(e.ToString());
+            TBoxListaDnia2.Text += "\r\n" + (e.ToString());
         }
 
-        private void button43_Click(object sender, EventArgs e)
+        private void BtPlus_Click(object sender, EventArgs e)
         {
             listaAktywności = zbierzDane();
             foreach (var aktywność in listaAktywności)
@@ -190,6 +218,72 @@ namespace Aplikacja_dyplomowa
                 LBoxListaDnia.Items.Add("\r\n" + aktywność.Key.ToString("dd-MM-yyyy") + " " + aktywność.Value);
                 // TBoxListaDnia.Text += "\r\n" + aktywność.Key.ToString("dd-MM-yyyy") + " " + aktywność.Value;
             }
+        }
+
+        private void BtMinus_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Na pewno chcesz usunąć zapis z wycieczki?", "Uwaga!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (dr == DialogResult.Yes)
+            {
+                try
+                {
+                    string plik = Application.StartupPath + @"\Tripy\" + rok.ToString() + (miesiąc < 10 ? ("0" + miesiąc.ToString()) : miesiąc.ToString()) + ((dzień < 10) ? ("0" + dzień.ToString()) : dzień.ToString()) + " " + this.LBoxListaDnia.SelectedItem.ToString();
+                    if (File.Exists(plik)) File.Delete(plik);
+                    else MessageBox.Show("Nie odnaleziono pliku!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LBoxListaDnia.Items.RemoveAt(LBoxListaDnia.SelectedIndex);
+                    aktualizujDaneDnia();
+                    BtMinus.Enabled = false;
+                    BtWczytaj.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void BtWczytaj_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Czy chcesz wczytać wybrany zapis wycieczki z kalendarza?", "Uwaga!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (dr == DialogResult.Yes)
+            {
+                string plik = Application.StartupPath + @"\Tripy\" + rok.ToString() + (miesiąc < 10 ? ("0" + miesiąc.ToString()) : miesiąc.ToString()) + ((dzień < 10) ? ("0" + dzień.ToString()) : dzień.ToString()) + " " + this.LBoxListaDnia.SelectedItem.ToString();
+                if (File.Exists(plik))
+                {
+                    try
+                    {
+                        StreamReader sr = new StreamReader(plik);
+                        Aplikacja_dyplomowa.Form1.tBoxTemp.Text = sr.ReadToEnd();
+                        sr.Close();
+                        Aplikacja_dyplomowa.Form1.Konwertuj_dane();
+                        Aplikacja_dyplomowa.Form1.Wypełnij_wykresy();
+
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        MessageBox.Show("Plik pusty lub nieprawidłowe dane!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Exception: " + ex.Message);
+                        return;
+                    }
+                    this.Close();
+                    Aplikacja_dyplomowa.Form1.Enabled = true;
+                    Aplikacja_dyplomowa.Form1.Focus();
+                }
+                else MessageBox.Show("Nie odnaleziono pliku!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LBoxListaDnia.Items.RemoveAt(LBoxListaDnia.SelectedIndex);
+                aktualizujDaneDnia();
+                BtMinus.Enabled = false;
+                BtWczytaj.Enabled = false;
+            }
+        }
+
+        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Aplikacja_dyplomowa.Form1.Enabled = true;
+            Aplikacja_dyplomowa.Form1.Focus();
         }
     }
 }

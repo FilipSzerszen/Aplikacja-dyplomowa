@@ -280,7 +280,7 @@ namespace Aplikacja_dyplomowa
             }
         }
 
-        private void ZToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OtwórzPlikToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //'I  |  I  |  HL |  HP |  K  |  K  |  V  |  V          
             //'inf       hamulec L  P  Obr. korby

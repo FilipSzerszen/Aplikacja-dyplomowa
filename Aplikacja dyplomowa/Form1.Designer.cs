@@ -143,7 +143,7 @@ namespace Aplikacja_dyplomowa
             this.zToolStripMenuItem.Name = "zToolStripMenuItem";
             this.zToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.zToolStripMenuItem.Text = "&Otwórz plik";
-            this.zToolStripMenuItem.Click += new System.EventHandler(this.ZToolStripMenuItem_Click);
+            this.zToolStripMenuItem.Click += new System.EventHandler(this.OtwórzPlikToolStripMenuItem_Click);
             // 
             // zapiszPlikToolStripMenuItem
             // 
@@ -879,7 +879,6 @@ namespace Aplikacja_dyplomowa
         private System.Windows.Forms.ComboBox cBoxPortCom;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.RadioButton rBtnON;
-        private System.Windows.Forms.TextBox tBoxTemp;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StripStatus;
         private System.Windows.Forms.DataVisualization.Charting.Chart chPP;
@@ -919,6 +918,7 @@ namespace Aplikacja_dyplomowa
         private System.Windows.Forms.DataVisualization.Charting.Chart chPT;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripMenuItem kalendarzToolStripMenuItem;
+        public System.Windows.Forms.TextBox tBoxTemp;
     }
 }
 

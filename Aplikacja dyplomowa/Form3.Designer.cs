@@ -84,10 +84,13 @@ namespace Aplikacja_dyplomowa
             this.gBox = new System.Windows.Forms.GroupBox();
             this.TBoxListaDnia2 = new System.Windows.Forms.TextBox();
             this.LBLwybranaData = new System.Windows.Forms.Label();
+            this.LBoxListaDnia = new System.Windows.Forms.ListBox();
+            this.BtWczytaj = new System.Windows.Forms.Button();
+            this.BtMinus = new System.Windows.Forms.Button();
+            this.BtPlus = new System.Windows.Forms.Button();
             this.BTNdataPrzód = new System.Windows.Forms.Button();
             this.BTNdataWstecz = new System.Windows.Forms.Button();
-            this.button43 = new System.Windows.Forms.Button();
-            this.LBoxListaDnia = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.gBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -589,10 +592,9 @@ namespace Aplikacja_dyplomowa
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 278);
+            this.label8.Location = new System.Drawing.Point(10, 267);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(192, 72);
             this.label8.TabIndex = 52;
             this.label8.Text = "label8";
             // 
@@ -676,6 +678,52 @@ namespace Aplikacja_dyplomowa
             this.LBLwybranaData.Text = "wybrana data";
             this.LBLwybranaData.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // LBoxListaDnia
+            // 
+            this.LBoxListaDnia.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LBoxListaDnia.FormattingEnabled = true;
+            this.LBoxListaDnia.Location = new System.Drawing.Point(0, 331);
+            this.LBoxListaDnia.Name = "LBoxListaDnia";
+            this.LBoxListaDnia.Size = new System.Drawing.Size(284, 56);
+            this.LBoxListaDnia.TabIndex = 54;
+            this.LBoxListaDnia.SelectedIndexChanged += new System.EventHandler(this.TBoxListaDnia_SelectedIndexChanged);
+            // 
+            // BtWczytaj
+            // 
+            this.BtWczytaj.BackgroundImage = global::Aplikacja_dyplomowa.Properties.Resources.przywróć2;
+            this.BtWczytaj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtWczytaj.Enabled = false;
+            this.BtWczytaj.Location = new System.Drawing.Point(260, 308);
+            this.BtWczytaj.Name = "BtWczytaj";
+            this.BtWczytaj.Size = new System.Drawing.Size(20, 20);
+            this.BtWczytaj.TabIndex = 60;
+            this.BtWczytaj.UseVisualStyleBackColor = true;
+            this.BtWczytaj.Click += new System.EventHandler(this.BtWczytaj_Click);
+            // 
+            // BtMinus
+            // 
+            this.BtMinus.BackgroundImage = global::Aplikacja_dyplomowa.Properties.Resources.minus;
+            this.BtMinus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtMinus.Enabled = false;
+            this.BtMinus.Location = new System.Drawing.Point(234, 308);
+            this.BtMinus.Name = "BtMinus";
+            this.BtMinus.Size = new System.Drawing.Size(20, 20);
+            this.BtMinus.TabIndex = 59;
+            this.BtMinus.UseVisualStyleBackColor = true;
+            this.BtMinus.Click += new System.EventHandler(this.BtMinus_Click);
+            // 
+            // BtPlus
+            // 
+            this.BtPlus.BackgroundImage = global::Aplikacja_dyplomowa.Properties.Resources.plus;
+            this.BtPlus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtPlus.Enabled = false;
+            this.BtPlus.Location = new System.Drawing.Point(208, 308);
+            this.BtPlus.Name = "BtPlus";
+            this.BtPlus.Size = new System.Drawing.Size(20, 20);
+            this.BtPlus.TabIndex = 61;
+            this.BtPlus.UseVisualStyleBackColor = true;
+            this.BtPlus.Click += new System.EventHandler(this.BtPlus_Click);
+            // 
             // BTNdataPrzód
             // 
             this.BTNdataPrzód.BackgroundImage = global::Aplikacja_dyplomowa.Properties.Resources.Strzałka2;
@@ -698,34 +746,27 @@ namespace Aplikacja_dyplomowa
             this.BTNdataWstecz.UseVisualStyleBackColor = true;
             this.BTNdataWstecz.Click += new System.EventHandler(this.BTNdataWstecz_Click);
             // 
-            // button43
+            // textBox1
             // 
-            this.button43.BackgroundImage = global::Aplikacja_dyplomowa.Properties.Resources.Strzałka;
-            this.button43.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button43.Location = new System.Drawing.Point(122, 297);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(30, 23);
-            this.button43.TabIndex = 57;
-            this.button43.UseVisualStyleBackColor = true;
-            this.button43.Click += new System.EventHandler(this.button43_Click);
-            // 
-            // LBoxListaDnia
-            // 
-            this.LBoxListaDnia.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LBoxListaDnia.FormattingEnabled = true;
-            this.LBoxListaDnia.Location = new System.Drawing.Point(0, 331);
-            this.LBoxListaDnia.Name = "LBoxListaDnia";
-            this.LBoxListaDnia.Size = new System.Drawing.Size(284, 56);
-            this.LBoxListaDnia.TabIndex = 58;
-            this.LBoxListaDnia.SelectedIndexChanged += new System.EventHandler(this.TBoxListaDnia_SelectedIndexChanged);
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox1.Location = new System.Drawing.Point(0, 227);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(284, 75);
+            this.textBox1.TabIndex = 62;
+            this.textBox1.WordWrap = false;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 462);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BtPlus);
+            this.Controls.Add(this.BtWczytaj);
+            this.Controls.Add(this.BtMinus);
             this.Controls.Add(this.LBoxListaDnia);
-            this.Controls.Add(this.button43);
             this.Controls.Add(this.BTNdataPrzód);
             this.Controls.Add(this.BTNdataWstecz);
             this.Controls.Add(this.LBLwybranaData);
@@ -733,9 +774,13 @@ namespace Aplikacja_dyplomowa
             this.Controls.Add(this.gBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.LBLaktData);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form3";
             this.Text = "Kalendarz";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             this.gBox.ResumeLayout(false);
             this.gBox.PerformLayout();
             this.ResumeLayout(false);
@@ -801,7 +846,10 @@ namespace Aplikacja_dyplomowa
         private System.Windows.Forms.Label LBLwybranaData;
         private System.Windows.Forms.Button BTNdataWstecz;
         private System.Windows.Forms.Button BTNdataPrzód;
-        private System.Windows.Forms.Button button43;
+        private System.Windows.Forms.Button BtPlus;
         private System.Windows.Forms.ListBox LBoxListaDnia;
+        private System.Windows.Forms.Button BtMinus;
+        private System.Windows.Forms.Button BtWczytaj;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
