@@ -29,30 +29,30 @@ namespace Aplikacja_dyplomowa
 
             LBLaktData.Text = DateTime.Today.ToString("D");
             LBLwybranaData.Text = DateTime.Today.ToString("Y");
-            listaAktywności = zbierzDane();
+            listaAktywności = ZbierzDane();
             AktualizujKalendarz(DateTime.Today);
         }
 
-        public SortedList<DateTime, string> zbierzDane()
+        public SortedList<DateTime, string> ZbierzDane()
         {
             try
             {
                 if (!Directory.Exists(@".\Tripy")) Directory.CreateDirectory(@".\Tripy");
-                string[] ścieżki = Directory.GetFiles(@".\Tripy", "*.aar");
-                listaAktywności.Clear();
-                for (int i = 0; i < ścieżki.Length; i++)
+                else
                 {
-                    DateTime tempData = new DateTime(int.Parse(ścieżki[i].Substring(8, 4)), int.Parse(ścieżki[i].Substring(12, 2)), int.Parse(ścieżki[i].Substring(14, 2)));
-                    if (listaAktywności.ContainsKey(tempData))
+                    string[] ścieżki = Directory.GetFiles(@".\Tripy", "*.aar");
+                    listaAktywności.Clear();
+                    for (int i = 0; i < ścieżki.Length; i++)
                     {
-                        string tempString = listaAktywności.Values.ElementAt(listaAktywności.IndexOfKey(tempData));
-                        listaAktywności.RemoveAt(listaAktywności.IndexOfKey(tempData));
-                        tempString += "\r\n" + ścieżki[i].Substring(17);
-                        listaAktywności.Add(tempData, tempString);
-                    }
-                    else
-                    {
-                        listaAktywności.Add(tempData, ścieżki[i].Substring(17));
+                        DateTime tempData = new DateTime(int.Parse(ścieżki[i].Substring(8, 4)), int.Parse(ścieżki[i].Substring(12, 2)), int.Parse(ścieżki[i].Substring(14, 2)));
+                        if (listaAktywności.ContainsKey(tempData))
+                        {
+                            string tempString = listaAktywności.Values.ElementAt(listaAktywności.IndexOfKey(tempData));
+                            listaAktywności.RemoveAt(listaAktywności.IndexOfKey(tempData));
+                            tempString += "\r\n" + ścieżki[i].Substring(17);
+                            listaAktywności.Add(tempData, tempString);
+                        }
+                        else  listaAktywności.Add(tempData, ścieżki[i].Substring(17));
                     }
                 }
             }
@@ -62,31 +62,22 @@ namespace Aplikacja_dyplomowa
             }
             return listaAktywności;
         }
-        private void aktualizujListęDnia()
+        private void AktualizujListęDnia()
         {
             LBoxListaDnia.Items.Clear();
-            string temp = listaAktywności.Values.ElementAt(listaAktywności.IndexOfKey(new DateTime(rok, miesiąc, dzień)));
+            int indeks = listaAktywności.IndexOfKey(new DateTime(rok, miesiąc, dzień));
+            if (indeks < 0) return;
+            string temp = listaAktywności.Values.ElementAt(indeks);
             using (StringReader reader = new StringReader(temp))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null) LBoxListaDnia.Items.Add(line);
             }
         }
-        private void aktualizujDaneNaPodstawieListyDnia()
-        {
-            string tempString = "";
-            DateTime tempData = new DateTime(rok, miesiąc, dzień);
-
-            foreach (var Item in LBoxListaDnia.Items) tempString += Item.ToString() + "\r\n";
-            tempString.TrimEnd('\n', '\r');
-
-            listaAktywności.Remove(tempData);
-            listaAktywności.Add(tempData, tempString);
-        }
 
         private void AktualizujKalendarz(DateTime data)
         {
-            int dzieńTygodniaStart = (int)((new DateTime(data.Year, data.Month, 1)).DayOfWeek);
+            int dzieńTygodniaStart = (int)new DateTime(data.Year, data.Month, 1).DayOfWeek;
             if (dzieńTygodniaStart == 0) dzieńTygodniaStart = 7;    //niedzielom nadaj index 7, a nie 0
             if (dzieńTygodniaStart == 1) dzieńTygodniaStart = 8;    //jeśli idealnie wypadł od pn to zacznij tydzień później (wzgl. wizualne)   
 
@@ -94,7 +85,7 @@ namespace Aplikacja_dyplomowa
             for (int i = 1; i < 43; i++)
             {
                 var b = Buttons.Where(p => p.Name == "button" + i).FirstOrDefault();
-
+                if (b == null) break;
                 if (i >= dzieńTygodniaStart && i <= dzieńTygodniaStart - 1 + DateTime.DaysInMonth(data.Year, data.Month))
                 {   //pokaż dni aktualnego miesiąca
                     DateTime aktualna = new DateTime(rok, miesiąc, i - dzieńTygodniaStart + 1);
@@ -125,7 +116,7 @@ namespace Aplikacja_dyplomowa
             else miesiąc -= 1;
             dzień = 1;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
-            wyczyśćMałeMenu();
+            WyczyśćMałeMenu();
         }
 
         private void BTNdataPrzód_Click(object sender, EventArgs e)
@@ -134,9 +125,9 @@ namespace Aplikacja_dyplomowa
             else miesiąc += 1;
             dzień = 1;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
-            wyczyśćMałeMenu();
+            WyczyśćMałeMenu();
         }
-        private void wyczyśćMałeMenu()
+        private void WyczyśćMałeMenu()
         {
             LBoxListaDnia.Items.Clear();
             BtPlus.Enabled = false;
@@ -150,63 +141,64 @@ namespace Aplikacja_dyplomowa
             miesiąc = DateTime.Today.Month;
             rok = DateTime.Today.Year;
             AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
-            wyczyśćMałeMenu();
+            WyczyśćMałeMenu();
         }
-        
-        private void wczytajListęDnia(Control sender)
+
+        private void WczytajListęDnia(Control sender)
         {
             dzień = int.Parse(sender.Text);
             if (sender.ForeColor == Color.Red)
             {
-                aktualizujListęDnia();
-            }else LBoxListaDnia.Items.Clear();
+                AktualizujListęDnia();
+            }
+            else LBoxListaDnia.Items.Clear();
             BtMinus.Enabled = false;
             BtWczytaj.Enabled = false;
             if (Aplikacja_dyplomowa.Form1.wgrane) BtPlus.Enabled = true; else BtPlus.Enabled = false;
         }
         #region Podłączenie przycisków groupboxa
-        private void button1_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button2_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button3_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button4_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button5_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button6_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button7_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button8_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button9_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button10_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button11_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button12_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button13_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button14_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button15_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button16_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button17_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button18_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button19_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button20_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button21_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button22_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button23_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button24_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button25_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button26_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button27_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button28_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button29_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button30_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button31_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button32_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button33_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button34_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button35_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button36_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button37_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button38_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button39_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button40_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button41_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
-        private void button42_Click(object sender, EventArgs e) { wczytajListęDnia((Control)sender); }
+        private void Button1_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button2_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button3_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button4_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button5_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button6_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button7_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button8_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button9_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button10_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button11_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button12_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button13_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button14_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button15_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button16_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button17_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button18_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button19_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button20_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button21_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button22_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button23_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button24_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button25_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button26_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button27_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button28_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button29_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button30_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button31_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button32_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button33_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button34_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button35_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button36_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button37_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button38_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button39_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button40_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button41_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
+        private void Button42_Click(object sender, EventArgs e) { WczytajListęDnia((Control)sender); }
         #endregion
 
         private void TBoxListaDnia_SelectedIndexChanged(object sender, EventArgs e)
@@ -220,14 +212,14 @@ namespace Aplikacja_dyplomowa
         {
             if (Aplikacja_dyplomowa.Form1.wgrane)
             {
-                plik = Application.StartupPath + @"\Tripy\" + rok.ToString() + (miesiąc < 10 ? ("0" + miesiąc.ToString()) : miesiąc.ToString()) 
+                plik = Application.StartupPath + @"\Tripy\" + rok.ToString() + (miesiąc < 10 ? ("0" + miesiąc.ToString()) : miesiąc.ToString())
                                                                              + ((dzień < 10) ? ("0" + dzień.ToString()) : dzień.ToString());
                 Form5 child = new Form5();
                 child.ShowDialog();
 
-                listaAktywności = zbierzDane();
+                listaAktywności = ZbierzDane();
                 AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
-                aktualizujListęDnia();
+                AktualizujListęDnia();
             }
             else
             {
@@ -245,11 +237,10 @@ namespace Aplikacja_dyplomowa
                     plik = Application.StartupPath + @"\Tripy\" + rok.ToString() + (miesiąc < 10 ? ("0" + miesiąc.ToString()) : miesiąc.ToString()) + ((dzień < 10) ? ("0" + dzień.ToString()) : dzień.ToString()) + " " + this.LBoxListaDnia.SelectedItem.ToString();
                     if (File.Exists(plik)) File.Delete(plik);
                     else MessageBox.Show("Nie odnaleziono pliku!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LBoxListaDnia.Items.RemoveAt(LBoxListaDnia.SelectedIndex);
-                    aktualizujDaneNaPodstawieListyDnia();
-                    //listaAktywności = zbierzDane();
-                    //AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
-                    //aktualizujListęDnia();
+
+                    listaAktywności = ZbierzDane();
+                    AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+                    AktualizujListęDnia();
 
                     BtMinus.Enabled = false;
                     BtWczytaj.Enabled = false;
@@ -291,11 +282,10 @@ namespace Aplikacja_dyplomowa
                     this.Close();
                 }
                 else MessageBox.Show("Nie odnaleziono pliku!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LBoxListaDnia.Items.RemoveAt(LBoxListaDnia.SelectedIndex);
-                aktualizujDaneNaPodstawieListyDnia();
-                //listaAktywności = zbierzDane();
-                //AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
-                //aktualizujListęDnia();
+
+                listaAktywności = ZbierzDane();
+                AktualizujKalendarz(new DateTime(rok, miesiąc, dzień));
+                AktualizujListęDnia();
 
                 BtMinus.Enabled = false;
                 BtWczytaj.Enabled = false;
@@ -307,5 +297,5 @@ namespace Aplikacja_dyplomowa
             Aplikacja_dyplomowa.Form1.Enabled = true;
             Aplikacja_dyplomowa.Form1.Focus();
         }
-    } 
+    }
 }

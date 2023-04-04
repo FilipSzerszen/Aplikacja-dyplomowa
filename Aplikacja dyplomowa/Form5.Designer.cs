@@ -50,7 +50,7 @@ namespace Aplikacja_dyplomowa
             this.nazwaPliku.Name = "nazwaPliku";
             this.nazwaPliku.Size = new System.Drawing.Size(270, 20);
             this.nazwaPliku.TabIndex = 1;
-            this.nazwaPliku.KeyUp += new System.Windows.Forms.KeyEventHandler(this.nazwaPliku_KeyUp);
+            this.nazwaPliku.KeyUp += new System.Windows.Forms.KeyEventHandler(this.NazwaPliku_KeyUp);
             // 
             // ZapiszDoKalendarza
             // 

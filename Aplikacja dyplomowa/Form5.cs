@@ -17,7 +17,6 @@ namespace Aplikacja_dyplomowa
         {
             InitializeComponent();
             //this.SetDesktopLocation(DesktopLocation.X + (Size.Width / 2) , DesktopLocation.Y + (Size.Height / 2) );
-
         }
 
         private void ZapiszDoKalendarza_Click(object sender, EventArgs e)
@@ -41,7 +40,7 @@ namespace Aplikacja_dyplomowa
             this.Close();
         }
 
-        private void nazwaPliku_KeyUp(object sender, KeyEventArgs e)
+        private void NazwaPliku_KeyUp(object sender, KeyEventArgs e)
         {
             if (nazwaPliku.Text == "") ZapiszDoKalendarza.Enabled = false; else ZapiszDoKalendarza.Enabled = true;
         }

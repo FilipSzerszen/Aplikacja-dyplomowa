@@ -28,7 +28,7 @@ namespace Aplikacja_dyplomowa
     public partial class Aplikacja_dyplomowa : Form
     {
         private Dane d;
-        private List<Dane> lista = new List<Dane>();
+        private readonly List<Dane>  lista = new List<Dane>();
 
         public static Aplikacja_dyplomowa Form1;
         public TextBox tb;
@@ -38,7 +38,7 @@ namespace Aplikacja_dyplomowa
         string linia;
         public bool wgrane = false;
 
-        byte[,] Tablica_przelorzenia = new byte[3, 9];
+        readonly byte[,] Tablica_przelorzenia = new byte[3, 9];
         byte[] Tablica_kadencja;
         float[] Tablica_przyspieszenie;
 
@@ -526,9 +526,16 @@ namespace Aplikacja_dyplomowa
         }
         #endregion
 
-        private void kalendarzToolStripMenuItem_Click(object sender, EventArgs e)
+        private void KalendarzToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form3 child = new Form3();
+            child.Show();
+            child.SetDesktopLocation(DesktopLocation.X + (Size.Width / 2) - child.Size.Width / 2, DesktopLocation.Y + (Size.Height / 2) - child.Size.Height / 2);
+        }
+
+        private void OprogramieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form6 child = new Form6();
             child.Show();
             child.SetDesktopLocation(DesktopLocation.X + (Size.Width / 2) - child.Size.Width / 2, DesktopLocation.Y + (Size.Height / 2) - child.Size.Height / 2);
         }

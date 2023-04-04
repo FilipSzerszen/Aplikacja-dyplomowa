@@ -29,6 +29,7 @@ namespace Aplikacja_dyplomowa
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -88,6 +89,7 @@ namespace Aplikacja_dyplomowa
             this.BtMinus = new System.Windows.Forms.Button();
             this.BTNdataPrzód = new System.Windows.Forms.Button();
             this.BTNdataWstecz = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,7 +101,7 @@ namespace Aplikacja_dyplomowa
             this.button1.TabIndex = 0;
             this.button1.Text = "x";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -109,7 +111,7 @@ namespace Aplikacja_dyplomowa
             this.button2.TabIndex = 1;
             this.button2.Text = "x";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button3
             // 
@@ -119,7 +121,7 @@ namespace Aplikacja_dyplomowa
             this.button3.TabIndex = 2;
             this.button3.Text = "x";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button4
             // 
@@ -129,7 +131,7 @@ namespace Aplikacja_dyplomowa
             this.button4.TabIndex = 3;
             this.button4.Text = "x";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // button5
             // 
@@ -139,7 +141,7 @@ namespace Aplikacja_dyplomowa
             this.button5.TabIndex = 4;
             this.button5.Text = "x";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // button6
             // 
@@ -149,7 +151,7 @@ namespace Aplikacja_dyplomowa
             this.button6.TabIndex = 5;
             this.button6.Text = "x";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // button7
             // 
@@ -159,7 +161,7 @@ namespace Aplikacja_dyplomowa
             this.button7.TabIndex = 6;
             this.button7.Text = "x";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.Button7_Click);
             // 
             // button8
             // 
@@ -169,7 +171,7 @@ namespace Aplikacja_dyplomowa
             this.button8.TabIndex = 7;
             this.button8.Text = "x";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.Button8_Click);
             // 
             // button9
             // 
@@ -179,7 +181,7 @@ namespace Aplikacja_dyplomowa
             this.button9.TabIndex = 8;
             this.button9.Text = "x";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.Button9_Click);
             // 
             // button10
             // 
@@ -189,7 +191,7 @@ namespace Aplikacja_dyplomowa
             this.button10.TabIndex = 9;
             this.button10.Text = "x";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.Click += new System.EventHandler(this.Button10_Click);
             // 
             // button11
             // 
@@ -199,7 +201,7 @@ namespace Aplikacja_dyplomowa
             this.button11.TabIndex = 10;
             this.button11.Text = "x";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button11.Click += new System.EventHandler(this.Button11_Click);
             // 
             // button12
             // 
@@ -209,7 +211,7 @@ namespace Aplikacja_dyplomowa
             this.button12.TabIndex = 11;
             this.button12.Text = "x";
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button12.Click += new System.EventHandler(this.Button12_Click);
             // 
             // button13
             // 
@@ -219,7 +221,7 @@ namespace Aplikacja_dyplomowa
             this.button13.TabIndex = 12;
             this.button13.Text = "x";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.Button13_Click);
             // 
             // button14
             // 
@@ -229,7 +231,7 @@ namespace Aplikacja_dyplomowa
             this.button14.TabIndex = 13;
             this.button14.Text = "x";
             this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // button15
             // 
@@ -239,7 +241,7 @@ namespace Aplikacja_dyplomowa
             this.button15.TabIndex = 14;
             this.button15.Text = "x";
             this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button15.Click += new System.EventHandler(this.Button15_Click);
             // 
             // button16
             // 
@@ -249,7 +251,7 @@ namespace Aplikacja_dyplomowa
             this.button16.TabIndex = 15;
             this.button16.Text = "x";
             this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.button16.Click += new System.EventHandler(this.Button16_Click);
             // 
             // button17
             // 
@@ -259,7 +261,7 @@ namespace Aplikacja_dyplomowa
             this.button17.TabIndex = 16;
             this.button17.Text = "x";
             this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button17.Click += new System.EventHandler(this.Button17_Click);
             // 
             // button18
             // 
@@ -269,7 +271,7 @@ namespace Aplikacja_dyplomowa
             this.button18.TabIndex = 17;
             this.button18.Text = "x";
             this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.button18.Click += new System.EventHandler(this.Button18_Click);
             // 
             // button19
             // 
@@ -279,7 +281,7 @@ namespace Aplikacja_dyplomowa
             this.button19.TabIndex = 18;
             this.button19.Text = "x";
             this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.button19.Click += new System.EventHandler(this.Button19_Click);
             // 
             // button20
             // 
@@ -289,7 +291,7 @@ namespace Aplikacja_dyplomowa
             this.button20.TabIndex = 19;
             this.button20.Text = "x";
             this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
+            this.button20.Click += new System.EventHandler(this.Button20_Click);
             // 
             // button21
             // 
@@ -299,7 +301,7 @@ namespace Aplikacja_dyplomowa
             this.button21.TabIndex = 20;
             this.button21.Text = "x";
             this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
+            this.button21.Click += new System.EventHandler(this.Button21_Click);
             // 
             // button22
             // 
@@ -309,7 +311,7 @@ namespace Aplikacja_dyplomowa
             this.button22.TabIndex = 21;
             this.button22.Text = "x";
             this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
+            this.button22.Click += new System.EventHandler(this.Button22_Click);
             // 
             // button23
             // 
@@ -319,7 +321,7 @@ namespace Aplikacja_dyplomowa
             this.button23.TabIndex = 22;
             this.button23.Text = "x";
             this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.button23.Click += new System.EventHandler(this.Button23_Click);
             // 
             // button24
             // 
@@ -329,7 +331,7 @@ namespace Aplikacja_dyplomowa
             this.button24.TabIndex = 23;
             this.button24.Text = "x";
             this.button24.UseVisualStyleBackColor = true;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
+            this.button24.Click += new System.EventHandler(this.Button24_Click);
             // 
             // button25
             // 
@@ -339,7 +341,7 @@ namespace Aplikacja_dyplomowa
             this.button25.TabIndex = 24;
             this.button25.Text = "x";
             this.button25.UseVisualStyleBackColor = true;
-            this.button25.Click += new System.EventHandler(this.button25_Click);
+            this.button25.Click += new System.EventHandler(this.Button25_Click);
             // 
             // button26
             // 
@@ -349,7 +351,7 @@ namespace Aplikacja_dyplomowa
             this.button26.TabIndex = 25;
             this.button26.Text = "x";
             this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.button26_Click);
+            this.button26.Click += new System.EventHandler(this.Button26_Click);
             // 
             // button27
             // 
@@ -359,7 +361,7 @@ namespace Aplikacja_dyplomowa
             this.button27.TabIndex = 26;
             this.button27.Text = "x";
             this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
+            this.button27.Click += new System.EventHandler(this.Button27_Click);
             // 
             // button28
             // 
@@ -369,7 +371,7 @@ namespace Aplikacja_dyplomowa
             this.button28.TabIndex = 27;
             this.button28.Text = "x";
             this.button28.UseVisualStyleBackColor = true;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
+            this.button28.Click += new System.EventHandler(this.Button28_Click);
             // 
             // button29
             // 
@@ -379,7 +381,7 @@ namespace Aplikacja_dyplomowa
             this.button29.TabIndex = 28;
             this.button29.Text = "x";
             this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.button29.Click += new System.EventHandler(this.Button29_Click);
             // 
             // button30
             // 
@@ -389,7 +391,7 @@ namespace Aplikacja_dyplomowa
             this.button30.TabIndex = 29;
             this.button30.Text = "x";
             this.button30.UseVisualStyleBackColor = true;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
+            this.button30.Click += new System.EventHandler(this.Button30_Click);
             // 
             // button31
             // 
@@ -399,7 +401,7 @@ namespace Aplikacja_dyplomowa
             this.button31.TabIndex = 30;
             this.button31.Text = "x";
             this.button31.UseVisualStyleBackColor = true;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
+            this.button31.Click += new System.EventHandler(this.Button31_Click);
             // 
             // button32
             // 
@@ -409,7 +411,7 @@ namespace Aplikacja_dyplomowa
             this.button32.TabIndex = 31;
             this.button32.Text = "x";
             this.button32.UseVisualStyleBackColor = true;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
+            this.button32.Click += new System.EventHandler(this.Button32_Click);
             // 
             // button33
             // 
@@ -419,7 +421,7 @@ namespace Aplikacja_dyplomowa
             this.button33.TabIndex = 32;
             this.button33.Text = "x";
             this.button33.UseVisualStyleBackColor = true;
-            this.button33.Click += new System.EventHandler(this.button33_Click);
+            this.button33.Click += new System.EventHandler(this.Button33_Click);
             // 
             // button34
             // 
@@ -429,7 +431,7 @@ namespace Aplikacja_dyplomowa
             this.button34.TabIndex = 33;
             this.button34.Text = "x";
             this.button34.UseVisualStyleBackColor = true;
-            this.button34.Click += new System.EventHandler(this.button34_Click);
+            this.button34.Click += new System.EventHandler(this.Button34_Click);
             // 
             // button35
             // 
@@ -439,7 +441,7 @@ namespace Aplikacja_dyplomowa
             this.button35.TabIndex = 34;
             this.button35.Text = "x";
             this.button35.UseVisualStyleBackColor = true;
-            this.button35.Click += new System.EventHandler(this.button35_Click);
+            this.button35.Click += new System.EventHandler(this.Button35_Click);
             // 
             // button36
             // 
@@ -449,7 +451,7 @@ namespace Aplikacja_dyplomowa
             this.button36.TabIndex = 35;
             this.button36.Text = "x";
             this.button36.UseVisualStyleBackColor = true;
-            this.button36.Click += new System.EventHandler(this.button36_Click);
+            this.button36.Click += new System.EventHandler(this.Button36_Click);
             // 
             // button37
             // 
@@ -459,7 +461,7 @@ namespace Aplikacja_dyplomowa
             this.button37.TabIndex = 36;
             this.button37.Text = "x";
             this.button37.UseVisualStyleBackColor = true;
-            this.button37.Click += new System.EventHandler(this.button37_Click);
+            this.button37.Click += new System.EventHandler(this.Button37_Click);
             // 
             // button38
             // 
@@ -469,7 +471,7 @@ namespace Aplikacja_dyplomowa
             this.button38.TabIndex = 37;
             this.button38.Text = "x";
             this.button38.UseVisualStyleBackColor = true;
-            this.button38.Click += new System.EventHandler(this.button38_Click);
+            this.button38.Click += new System.EventHandler(this.Button38_Click);
             // 
             // button39
             // 
@@ -479,7 +481,7 @@ namespace Aplikacja_dyplomowa
             this.button39.TabIndex = 38;
             this.button39.Text = "x";
             this.button39.UseVisualStyleBackColor = true;
-            this.button39.Click += new System.EventHandler(this.button39_Click);
+            this.button39.Click += new System.EventHandler(this.Button39_Click);
             // 
             // button40
             // 
@@ -489,7 +491,7 @@ namespace Aplikacja_dyplomowa
             this.button40.TabIndex = 39;
             this.button40.Text = "x";
             this.button40.UseVisualStyleBackColor = true;
-            this.button40.Click += new System.EventHandler(this.button40_Click);
+            this.button40.Click += new System.EventHandler(this.Button40_Click);
             // 
             // button41
             // 
@@ -499,7 +501,7 @@ namespace Aplikacja_dyplomowa
             this.button41.TabIndex = 40;
             this.button41.Text = "x";
             this.button41.UseVisualStyleBackColor = true;
-            this.button41.Click += new System.EventHandler(this.button41_Click);
+            this.button41.Click += new System.EventHandler(this.Button41_Click);
             // 
             // button42
             // 
@@ -509,7 +511,7 @@ namespace Aplikacja_dyplomowa
             this.button42.TabIndex = 41;
             this.button42.Text = "x";
             this.button42.UseVisualStyleBackColor = true;
-            this.button42.Click += new System.EventHandler(this.button42_Click);
+            this.button42.Click += new System.EventHandler(this.Button42_Click);
             // 
             // label1
             // 
@@ -673,6 +675,7 @@ namespace Aplikacja_dyplomowa
             this.BtPlus.Name = "BtPlus";
             this.BtPlus.Size = new System.Drawing.Size(20, 20);
             this.BtPlus.TabIndex = 61;
+            this.toolTip1.SetToolTip(this.BtPlus, "Dodaje rejestr wycieczki do kalendarza");
             this.BtPlus.UseVisualStyleBackColor = true;
             this.BtPlus.Click += new System.EventHandler(this.BtPlus_Click);
             // 
@@ -685,6 +688,7 @@ namespace Aplikacja_dyplomowa
             this.BtWczytaj.Name = "BtWczytaj";
             this.BtWczytaj.Size = new System.Drawing.Size(20, 20);
             this.BtWczytaj.TabIndex = 60;
+            this.toolTip1.SetToolTip(this.BtWczytaj, "Wczytuje rejestr wycieczki z kalendarza");
             this.BtWczytaj.UseVisualStyleBackColor = true;
             this.BtWczytaj.Click += new System.EventHandler(this.BtWczytaj_Click);
             // 
@@ -697,6 +701,7 @@ namespace Aplikacja_dyplomowa
             this.BtMinus.Name = "BtMinus";
             this.BtMinus.Size = new System.Drawing.Size(20, 20);
             this.BtMinus.TabIndex = 59;
+            this.toolTip1.SetToolTip(this.BtMinus, "Usuwa rejestr wycieczki z kalendarza");
             this.BtMinus.UseVisualStyleBackColor = true;
             this.BtMinus.Click += new System.EventHandler(this.BtMinus_Click);
             // 
@@ -721,6 +726,10 @@ namespace Aplikacja_dyplomowa
             this.BTNdataWstecz.TabIndex = 49;
             this.BTNdataWstecz.UseVisualStyleBackColor = true;
             this.BTNdataWstecz.Click += new System.EventHandler(this.BTNdataWstecz_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ShowAlways = true;
             // 
             // Form3
             // 
@@ -809,5 +818,6 @@ namespace Aplikacja_dyplomowa
         private System.Windows.Forms.Button BtMinus;
         private System.Windows.Forms.Button BtWczytaj;
         public System.Windows.Forms.ListBox LBoxListaDnia;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
