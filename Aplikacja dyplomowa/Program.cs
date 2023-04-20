@@ -17,7 +17,6 @@ namespace Aplikacja_dyplomowa
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Aplikacja_dyplomowa());
-            Aplikacja_dyplomowa.Form1.SetDesktopLocation((Screen.PrimaryScreen.Bounds.Width - Aplikacja_dyplomowa.Form1.Size.Width) / 2, (Screen.PrimaryScreen.Bounds.Height - Aplikacja_dyplomowa.Form1.Size.Height) / 2);
         }
     }
 }

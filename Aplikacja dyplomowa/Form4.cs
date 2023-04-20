@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Aplikacja_dyplomowa
@@ -25,8 +18,6 @@ namespace Aplikacja_dyplomowa
                 Form2 child = new Form2();
                 this.Close();    
                 child.Show();
-                child.SetDesktopLocation(DesktopLocation.X + (Size.Width / 2) - child.Size.Width / 2, DesktopLocation.Y + (Size.Height / 2) - child.Size.Height / 2);
-
             }
             else
             {

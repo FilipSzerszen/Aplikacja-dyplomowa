@@ -80,6 +80,7 @@ namespace Aplikacja_dyplomowa
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Import danych";
             this.Shown += new System.EventHandler(this.Form2_Shown);
             this.ResumeLayout(false);

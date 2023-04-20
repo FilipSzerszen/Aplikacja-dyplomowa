@@ -57,6 +57,7 @@ namespace Aplikacja_dyplomowa
             this.richTextBox1.Size = new System.Drawing.Size(299, 145);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
             // 
             // Form6
             // 

@@ -69,6 +69,7 @@ namespace Aplikacja_dyplomowa
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Import danych";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
             this.ResumeLayout(false);

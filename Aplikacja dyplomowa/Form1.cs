@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO.Ports;
 using System.IO;
-using System.Windows.Forms.DataVisualization.Charting;
+using System.IO.Ports;
+using System.Windows.Forms;
 
 
 struct Dane
@@ -426,7 +420,6 @@ namespace Aplikacja_dyplomowa
         {
             Form4 child = new Form4();
             child.Show();
-            child.SetDesktopLocation(DesktopLocation.X + (Size.Width / 2) - child.Size.Width / 2, DesktopLocation.Y + (Size.Height / 2) - child.Size.Height / 2);
         }
 
         private void Otworz_port_cBox(object sender, EventArgs e)
